@@ -1,10 +1,11 @@
 {
-  "extractedAt": "2026-02-02T03:29:14.348Z",
+  "system": "ndf",
+  "extractedAt": "2026-02-05T07:36:08.734Z",
   "gitInfo": {
-    "commitId": "fb65bb99027183861446578d0e653aa3831982dd",
-    "shortCommitId": "fb65bb9",
-    "commitUrl": "https://github.com/bfi-finance/lora-partnership-ndf/commit/fb65bb99027183861446578d0e653aa3831982dd",
-    "treeUrl": "https://github.com/bfi-finance/lora-partnership-ndf/tree/fb65bb99027183861446578d0e653aa3831982dd"
+    "commitId": "cd3f2c5202225aac33cc69b9b1ad9c6512bc1250",
+    "shortCommitId": "cd3f2c5",
+    "commitUrl": "https://github.com/bfi-finance/lora-partnership-ndf/commit/cd3f2c5202225aac33cc69b9b1ad9c6512bc1250",
+    "treeUrl": "https://github.com/bfi-finance/lora-partnership-ndf/tree/cd3f2c5202225aac33cc69b9b1ad9c6512bc1250"
   },
   "searchPaths": [
     "internal/process/tasking/",

@@ -4,7 +4,7 @@ const basePath = process.argv[2] || '.';
 
 syncReadset({
   basePath,
-  outputPublic: 'public/readset-output-ndf.json',
-  outputRoot: 'readset-output-ndf.json',
-  system: 'ndf'
+  outputPublic: 'public/readset-output-ssf.json',
+  outputRoot: 'readset-output-ssf.json',
+  system: 'ssf'
 }).catch(() => process.exit(1));

@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "node dev-server.js",
-    "sync-readset": "node sync.js",
+    "sync-readset-ndf": "node sync-ndf.js",
+    "sync-readset-ssf": "node sync-ssf.js",
     "test": "node test.js"
   },
   "keywords": [],
