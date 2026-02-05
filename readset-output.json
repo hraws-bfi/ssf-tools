@@ -1,10 +1,10 @@
 {
-  "extractedAt": "2026-02-05T08:53:07.777Z",
+  "extractedAt": "2026-02-05T09:16:09.838Z",
   "gitInfo": {
-    "commitId": "3ecacb4ee909185022c67211336ea48c91ded59c",
-    "shortCommitId": "3ecacb4",
-    "commitUrl": "https://github.com/bfi-finance/lora-mou-ssf/commit/3ecacb4ee909185022c67211336ea48c91ded59c",
-    "treeUrl": "https://github.com/bfi-finance/lora-mou-ssf/tree/3ecacb4ee909185022c67211336ea48c91ded59c"
+    "commitId": "5fc27a50985de41b887f780bf46cd672e8586c38",
+    "shortCommitId": "5fc27a5",
+    "commitUrl": "https://github.com/bfi-finance/lora-mou-ssf/commit/5fc27a50985de41b887f780bf46cd672e8586c38",
+    "treeUrl": "https://github.com/bfi-finance/lora-mou-ssf/tree/5fc27a50985de41b887f780bf46cd672e8586c38"
   },
   "searchPaths": [
     "internal/process/tasking/",
