@@ -1,11 +1,11 @@
 {
   "system": "ssf",
-  "extractedAt": "2026-02-05T09:14:07.113Z",
+  "extractedAt": "2026-02-12T01:42:28.375Z",
   "gitInfo": {
-    "commitId": "d9affe7668d5bed65b202d34308ef6fafd8edce0",
-    "shortCommitId": "d9affe7",
-    "commitUrl": "https://github.com/bfi-finance/lora-mou-ssf/commit/d9affe7668d5bed65b202d34308ef6fafd8edce0",
-    "treeUrl": "https://github.com/bfi-finance/lora-mou-ssf/tree/d9affe7668d5bed65b202d34308ef6fafd8edce0"
+    "commitId": "afb462dc0dc3646b592212cab29224dc1e08efdf",
+    "shortCommitId": "afb462d",
+    "commitUrl": "https://github.com/bfi-finance/lora-mou-ssf/commit/afb462dc0dc3646b592212cab29224dc1e08efdf",
+    "treeUrl": "https://github.com/bfi-finance/lora-mou-ssf/tree/afb462dc0dc3646b592212cab29224dc1e08efdf"
   },
   "searchPaths": [
     "internal/process/tasking/",
@@ -13,9 +13,9 @@
     "internal/process/operation/",
     "internal/process/scoring/"
   ],
-  "totalFiles": 67,
-  "totalReadSets": 62,
-  "totalConstants": 247,
+  "totalFiles": 71,
+  "totalReadSets": 65,
+  "totalConstants": 249,
   "readSets": [
     {
       "type": "survey",
@@ -43,10 +43,72 @@
       ]
     },
     {
+      "type": "upload_mou_doc_personal",
+      "readSet": [
+        "DocId",
+        "DocBranchBranchCity",
+        "DocBranchBranchName",
+        "DocLoanStructureTotalPlafondAmount",
+        "DocLoanStructureTenor",
+        "DocLoanStructureAdminFee1",
+        "DocLoanStructureAdminFee2",
+        "DocLoanStructureAdminFee3",
+        "DocLoanStructureAdminFee4",
+        "DocLoanStructureMaxPlafondPercentage",
+        "DocLoanStructureLateFeeRate",
+        "DocLoanStructurePenaltyRate",
+        "DocLoanStructureEffectiveRate",
+        "DocBranchBranchManagerName",
+        "DocCustomerName",
+        "DocShowroomMainInfoName",
+        "DocCustomerBillingAddressStreet",
+        "DocCustomerBillingAddressRt",
+        "DocCustomerBillingAddressRw",
+        "DocCustomerBillingAddressSubDistrictCode",
+        "DocCustomerBillingAddressZipCode"
+      ]
+    },
+    {
+      "type": "upload_mou_doc_company",
+      "readSet": [
+        "DocId",
+        "DocBranchBranchCity",
+        "DocBranchBranchName",
+        "DocLoanStructureTotalPlafondAmount",
+        "DocLoanStructureEndDate",
+        "DocLoanStructureTenor",
+        "DocLoanStructureAdminFee1",
+        "DocLoanStructureAdminFee2",
+        "DocLoanStructureAdminFee3",
+        "DocLoanStructureAdminFee4",
+        "DocLoanStructureMaxPlafondPercentage",
+        "DocLoanStructureLateFeeRate",
+        "DocLoanStructurePenaltyRate",
+        "DocLoanStructureEffectiveRate",
+        "DocBranchBranchManagerName",
+        "DocCustomerName",
+        "DocShowroomMainInfoName",
+        "DocCustomerBillingAddressStreet",
+        "DocCustomerBillingAddressRt",
+        "DocCustomerBillingAddressRw",
+        "DocCustomerBillingAddressSubDistrictCode",
+        "DocCustomerBillingAddressZipCode",
+        "DocCustomerCompanyPersonInChargePosition"
+      ]
+    },
+    {
+      "type": "sign_poa",
+      "readSet": [
+        "DocProcessConsentDocumentId",
+        "DocBranchBranchManagerNik",
+        "DocId"
+      ]
+    },
+    {
       "type": "issue_esign_mou",
       "readSet": [
         "DocCustomerName",
-        "DocProcessMouNumber",
+        "DocId",
         "DocProcessConsentDocumentId",
         "DocCustomerProfile"
       ]
@@ -856,6 +918,7 @@
   "constants": {
     "DocBranchBranchCity": "$.branch.branch_city",
     "DocBranchBranchManagerName": "$.branch.branch_manager.name",
+    "DocBranchBranchManagerNik": "$.branch.branch_manager.nik",
     "DocBranchBranchManagerTitle": "$.branch.branch_manager.title",
     "DocBranchBranchName": "$.branch.branch_name",
     "DocBranchId": "$.branch.id",
@@ -876,6 +939,7 @@
     "DocCustomerCompanyPersonInChargeKtpName": "$.customer.company.person_in_charge.ktp.name",
     "DocCustomerCompanyPersonInChargeKtpNik": "$.customer.company.person_in_charge.ktp.nik",
     "DocCustomerCompanyPersonInChargePhoneNumber": "$.customer.company.person_in_charge.phone_number",
+    "DocCustomerCompanyPersonInChargePosition": "$.customer.company.person_in_charge.position",
     "DocCustomerCompanyPersonInChargeSpouseKtpBirthDate": "$.customer.company.person_in_charge.spouse.ktp.birth_date",
     "DocCustomerCompanyPersonInChargeSpouseKtpBirthPlace": "$.customer.company.person_in_charge.spouse.ktp.birth_place",
     "DocCustomerCompanyPersonInChargeSpouseKtpName": "$.customer.company.person_in_charge.spouse.ktp.name",
@@ -1065,6 +1129,7 @@
     "DocLoanStructureMaxPlafondPercentage": "$.loan_structure.max_plafond_percentage",
     "DocLoanStructurePenaltyRate": "$.loan_structure.penalty_rate",
     "DocLoanStructureRequestedPlafondAmount": "$.loan_structure.requested_plafond_amount",
+    "DocLoanStructureTenor": "$.loan_structure.tenor",
     "DocLoanStructureTotalPlafondAmount": "$.loan_structure.total_plafond_amount",
     "DocProcessAuthorizerAddress": "$.process.authorizer.address",
     "DocProcessAuthorizerName": "$.process.authorizer.name",
@@ -1091,7 +1156,6 @@
     "DocProcessConsentApproverCompanyShareholder9Status": "$.process.consent.approver_company_shareholder_9.status",
     "DocProcessConsentApproverCustomerIndividualStatus": "$.process.consent.approver_customer_individual.status",
     "DocProcessConsentDocumentId": "$.process.consent.document_id",
-    "DocProcessMouNumber": "$.process.mou_number",
     "DocProductId": "$.product_id",
     "DocShowroomMainInfoAddressRt": "$.showroom.main.info.address.rt",
     "DocShowroomMainInfoAddressRw": "$.showroom.main.info.address.rw",
