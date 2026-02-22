@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "systems": [
+    {
+      "key": "disburse",
+      "name": "DISBURSE",
+      "outputPublic": "public/readset-output-disburse.json"
+    },
+    {
+      "key": "ndf",
+      "name": "NDF",
+      "outputPublic": "public/readset-output-ndf.json"
+    },
+    {
+      "key": "ssf",
+      "name": "SSF",
+      "outputPublic": "public/readset-output-ssf.json"
+    }
+  ]
+}

@@ -131,7 +131,7 @@ function extractReadSet(content, filePath) {
   return results;
 }
 
-async function syncReadset({ basePath, outputPublic, outputRoot, system }) {
+async function syncReadset({ basePath, outputPublic, system }) {
   const patterns = [
     path.join(basePath, 'internal/process/tasking/**/*.go'),
     path.join(basePath, 'internal/process/document/**/*.go'),
@@ -222,7 +222,6 @@ async function syncReadset({ basePath, outputPublic, outputRoot, system }) {
     };
 
     fs.writeFileSync(outputPublic, JSON.stringify(outputData, null, 2));
-    fs.writeFileSync(outputRoot, JSON.stringify(outputData, null, 2));
 
     return outputData;
   } catch (error) {

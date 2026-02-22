@@ -1,32 +1,53 @@
 # 📦 TOOLS
 
-A utility for LORA, to sync the readset and visualize the doc.
+A utility for LORA, to sync readset data and visualize doc revision behavior.
 
-## 📥 Installation & Usage
+## 📥 Installation
 
 ```bash
-# Clone Project
 git clone https://github.com/wira-bfi/tools.git
 cd <your-project-folder>
-
-# Install Dependencies
 npm install
-
-# Sync Readset
-npm run sync-readset-ndf -- <path-to-lora-partnership-ndf>
-npm run sync-readset-ssf -- <path-to-lora-partnership-ssf>
-
-# Commit Changes
-git add .
-git commit -m "sync"
-git push
 ```
 
+## ➕ Add New Supported System
+
+Use the interactive wizard:
+
+```bash
+npm run add-readset-system
+```
+
+You will be prompted for:
+- system key (lowercase-kebab format, e.g. `abc-core`)
+- display name
+
+This updates `systems.config.json` and creates output targets:
+- `public/readset-output-<system>.json`
+
+## 🔄 Sync Readset
+
+Use the generic sync command:
+
+```bash
+npm run sync-readset
+```
+
+This shows an interactive system picker from `systems.config.json`.
+
+You can still run directly with a key:
+
+```bash
+npm run sync-readset -- <system-key>
+```
+
+The command will always prompt:
+- `Enter repo path for <system-key>:`
+
+Path is validated to ensure it exists, is a directory, and contains expected Go process files.
+
 ## 📌 Notes
-Requires Node.js and npm installed.
-
-Ensure you have access to the lora-partnership-ndf directory before running the sync command.
-
-Readset outputs are written to:
-- public/readset-output-ndf.json and readset-output-ndf.json
-- public/readset-output-ssf.json and readset-output-ssf.json
+- Requires Node.js and npm.
+- Sync output is written only to `public/readset-output-<system>.json`.
+- ReadSet checker systems are loaded from `systems.config.json`.
+- A system is shown in the dropdown only if its output file can be fetched successfully.

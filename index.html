@@ -272,10 +272,7 @@
 
       async init() {
         try {
-          const sources = [
-            { key: 'ndf', url: 'readset-output-ndf.json' },
-            { key: 'ssf', url: 'readset-output-ssf.json' }
-          ];
+          const sources = await this.loadSources();
 
           const results = await Promise.allSettled(
             sources.map((source) =>
@@ -309,6 +306,34 @@
           this.setSystem(this.availableSystems[0]);
         } catch (error) {
           console.error('Failed to load readset data:', error);
+        }
+      },
+
+      async loadSources() {
+        try {
+          const response = await fetch('systems.config.json');
+          if (!response.ok) {
+            throw new Error(`systems.config.json not found (${response.status})`);
+          }
+
+          const config = await response.json();
+          if (!config || !Array.isArray(config.systems)) {
+            throw new Error('Invalid systems config format');
+          }
+
+          return config.systems.map((system) => ({
+            key: system.key,
+            url: (system.outputPublic || `public/readset-output-${system.key}.json`).replace(/^public\//, '')
+          }));
+        } catch (error) {
+          this.loadErrors.push(
+            `Failed to load systems.config.json (${error.message}). Falling back to default systems.`
+          );
+
+          return [
+            { key: 'ndf', url: 'readset-output-ndf.json' },
+            { key: 'ssf', url: 'readset-output-ssf.json' }
+          ];
         }
       },
 
