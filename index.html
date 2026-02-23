@@ -323,7 +323,7 @@
 
           return config.systems.map((system) => ({
             key: system.key,
-            url: (system.outputPublic || `public/readset-output-${system.key}.json`).replace(/^public\//, '')
+            url: system.outputPublic || `public/readset-output-${system.key}.json`
           }));
         } catch (error) {
           this.loadErrors.push(
@@ -331,8 +331,8 @@
           );
 
           return [
-            { key: 'ndf', url: 'readset-output-ndf.json' },
-            { key: 'ssf', url: 'readset-output-ssf.json' }
+            { key: 'ndf', url: 'public/readset-output-ndf.json' },
+            { key: 'ssf', url: 'public/readset-output-ssf.json' }
           ];
         }
       },
