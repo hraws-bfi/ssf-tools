@@ -1,11 +1,11 @@
 {
   "system": "disburse",
-  "extractedAt": "2026-02-22T06:40:08.901Z",
+  "extractedAt": "2026-02-25T09:59:55.916Z",
   "gitInfo": {
-    "commitId": "d896802439d9d7424fdee1eaf0ad5e399b37554c",
-    "shortCommitId": "d896802",
-    "commitUrl": "https://github.com/bfi-finance/lora-disburse-ssf/commit/d896802439d9d7424fdee1eaf0ad5e399b37554c",
-    "treeUrl": "https://github.com/bfi-finance/lora-disburse-ssf/tree/d896802439d9d7424fdee1eaf0ad5e399b37554c"
+    "commitId": "45b8e387425a503c749921fbd5b2042199cd5e7e",
+    "shortCommitId": "45b8e38",
+    "commitUrl": "https://github.com/bfi-finance/lora-disburse-ssf/commit/45b8e387425a503c749921fbd5b2042199cd5e7e",
+    "treeUrl": "https://github.com/bfi-finance/lora-disburse-ssf/tree/45b8e387425a503c749921fbd5b2042199cd5e7e"
   },
   "searchPaths": [
     "internal/process/tasking/",
@@ -13,9 +13,9 @@
     "internal/process/operation/",
     "internal/process/scoring/"
   ],
-  "totalFiles": 4,
-  "totalReadSets": 1,
-  "totalConstants": 36,
+  "totalFiles": 6,
+  "totalReadSets": 3,
+  "totalConstants": 57,
   "readSets": [
     {
       "type": "uw_review",
@@ -28,8 +28,10 @@
         "DocStatusApplication",
         "DocProcessUnderwritingTaskApplicantStatus",
         "DocShowroomName",
+        "DocLoanStructureLoanCalculatorId",
         "DocProductType",
         "DocLoanStructureProductOffering",
+        "DocLoanStructureProductOfferingLabel",
         "DocLoanStructureBfiPrice",
         "DocLoanStructureOnTheRoadPrice",
         "DocLoanStructureMaxFunding",
@@ -46,22 +48,67 @@
         "DocLoanStructureAssetInsurancePremium",
         "DocLoanStructureMonthlyInstallment",
         "DocLoanStructureNtfAmount",
+        "DocLoanStructureProvisionalAmount",
         "DocAssetConditionNotes",
         "DocAssetLicensePlate",
+        "DocAssetVehicleType",
+        "DocAssetAssetCode",
+        "DocAssetManufacturingYear",
+        "DocAssetResaleValueCategory",
+        "DocAssetTaxExpirationDate",
+        "DocAssetUnitCondition",
         "DocDocumentsAgreementFppDocumentId",
         "DocDocumentsAgreementRingkasanInformasiDocumentId",
         "DocDocumentsAgreementSuratPermohonanKonsumenDocumentId",
-        "DocDocumentsVehiclePhysicalCheckDocumentId",
+        "DocDocumentsKirDocumentDocumentId",
         "DocDocumentsApprovalEvidenceDocumentId",
         "DocCustomerPkd",
-        "DocCustomerPersona",
-        "DocLoanStructureProvisionalAmount"
+        "DocCustomerPersona"
+      ]
+    },
+    {
+      "type": "receive",
+      "readSet": [
+        "DocProductId",
+        "DocProductType",
+        "DocAssetLicensePlate",
+        "DocCustomerName",
+        "DocStatusApplication",
+        "DocProcessSurveyTaskSurveyBranchId",
+        "DocProcessSurveyTaskSurveyBranchName",
+        "DocProcessSurveyTaskSurveyorEmployeeId",
+        "DocProcessSurveyTaskSurveyorEmployeeName",
+        "DocAssetVehicleType",
+        "DocAssetBpkbNumber",
+        "DocAssetBpkbOwnerName",
+        "DocDocumentsBpkbPage1DocumentId",
+        "DocDocumentsBpkbPage1DocumentType",
+        "DocSubmissionDate",
+        "DocAssetAssetDocumentStatus"
+      ]
+    },
+    {
+      "type": "submitassetdocument",
+      "readSet": [
+        "DocId",
+        "DocProcessOperationsTaskProcessingBranchId",
+        "DocProcessOperationsTaskDocumentReceiveEmployeeId",
+        "DocAssetBpkbNumber"
       ]
     }
   ],
   "constants": {
+    "DocAssetAssetCode": "$.asset.asset_code",
+    "DocAssetAssetDocumentStatus": "$.asset.asset_document_status",
+    "DocAssetBpkbNumber": "$.asset.bpkb_number",
+    "DocAssetBpkbOwnerName": "$.asset.bpkb_owner_name",
     "DocAssetConditionNotes": "$.asset.condition_notes",
     "DocAssetLicensePlate": "$.asset.license_plate",
+    "DocAssetManufacturingYear": "$.asset.manufacturing_year",
+    "DocAssetResaleValueCategory": "$.asset.resale_value_category",
+    "DocAssetTaxExpirationDate": "$.asset.tax_expiration_date",
+    "DocAssetUnitCondition": "$.asset.unit_condition",
+    "DocAssetVehicleType": "$.asset.vehicle_type",
     "DocBranchBranchName": "$.branch.branch_name",
     "DocBranchId": "$.branch.id",
     "DocCustomerName": "$.customer.name",
@@ -72,7 +119,9 @@
     "DocDocumentsAgreementRingkasanInformasiDocumentId": "$.documents.agreement_ringkasan_informasi.document_id",
     "DocDocumentsAgreementSuratPermohonanKonsumenDocumentId": "$.documents.agreement_surat_permohonan_konsumen.document_id",
     "DocDocumentsApprovalEvidenceDocumentId": "$.documents.approval_evidence.document_id",
-    "DocDocumentsVehiclePhysicalCheckDocumentId": "$.documents.vehicle_physical_check.document_id",
+    "DocDocumentsBpkbPage1DocumentId": "$.documents.bpkb_page_1.document_id",
+    "DocDocumentsBpkbPage1DocumentType": "$.documents.bpkb_page_1.document_type",
+    "DocDocumentsKirDocumentDocumentId": "$.documents.kir_document.document_id",
     "DocId": "$.id",
     "DocLoanStructureAdminFee": "$.loan_structure.admin_fee",
     "DocLoanStructureAssetInsurancePremium": "$.loan_structure.asset_insurance_premium",
@@ -83,6 +132,7 @@
     "DocLoanStructureInsuranceType": "$.loan_structure.insurance_type",
     "DocLoanStructureInterestRate": "$.loan_structure.interest_rate",
     "DocLoanStructureIsNst": "$.loan_structure.is_nst",
+    "DocLoanStructureLoanCalculatorId": "$.loan_structure.loan_calculator_id",
     "DocLoanStructureLtv": "$.loan_structure.ltv",
     "DocLoanStructureMaxFunding": "$.loan_structure.max_funding",
     "DocLoanStructureMonthlyInstallment": "$.loan_structure.monthly_installment",
@@ -90,11 +140,20 @@
     "DocLoanStructureNtfAmount": "$.loan_structure.ntf_amount",
     "DocLoanStructureOnTheRoadPrice": "$.loan_structure.on_the_road_price",
     "DocLoanStructureProductOffering": "$.loan_structure.product_offering",
+    "DocLoanStructureProductOfferingLabel": "$.loan_structure.product_offering_label",
     "DocLoanStructureProvisionalAmount": "$.loan_structure.provisional_amount",
     "DocLoanStructureTenure": "$.loan_structure.tenure",
+    "DocProcessOperationsTaskDocumentReceiveEmployeeId": "$.process.operations_task.document_receive_employee_id",
+    "DocProcessOperationsTaskProcessingBranchId": "$.process.operations_task.processing_branch_id",
+    "DocProcessSurveyTaskSurveyBranchId": "$.process.survey_task.survey_branch_id",
+    "DocProcessSurveyTaskSurveyBranchName": "$.process.survey_task.survey_branch_name",
+    "DocProcessSurveyTaskSurveyorEmployeeId": "$.process.survey_task.surveyor_employee_id",
+    "DocProcessSurveyTaskSurveyorEmployeeName": "$.process.survey_task.surveyor_employee_name",
     "DocProcessUnderwritingTaskApplicantStatus": "$.process.underwriting_task.applicant_status",
+    "DocProductId": "$.product_id",
     "DocProductType": "$.product_type",
     "DocShowroomName": "$.showroom.name",
-    "DocStatusApplication": "$.status.application"
+    "DocStatusApplication": "$.status.application",
+    "DocSubmissionDate": "$.submission_date"
   }
 }
