@@ -1,11 +1,11 @@
 {
   "system": "disburse",
-  "extractedAt": "2026-02-25T09:59:55.916Z",
+  "extractedAt": "2026-02-26T09:44:28.134Z",
   "gitInfo": {
-    "commitId": "45b8e387425a503c749921fbd5b2042199cd5e7e",
-    "shortCommitId": "45b8e38",
-    "commitUrl": "https://github.com/bfi-finance/lora-disburse-ssf/commit/45b8e387425a503c749921fbd5b2042199cd5e7e",
-    "treeUrl": "https://github.com/bfi-finance/lora-disburse-ssf/tree/45b8e387425a503c749921fbd5b2042199cd5e7e"
+    "commitId": "e4ba1812a8bea1efa653d12967a93aee8413238d",
+    "shortCommitId": "e4ba181",
+    "commitUrl": "https://github.com/bfi-finance/lora-disburse-ssf/commit/e4ba1812a8bea1efa653d12967a93aee8413238d",
+    "treeUrl": "https://github.com/bfi-finance/lora-disburse-ssf/tree/e4ba1812a8bea1efa653d12967a93aee8413238d"
   },
   "searchPaths": [
     "internal/process/tasking/",
@@ -15,7 +15,7 @@
   ],
   "totalFiles": 6,
   "totalReadSets": 3,
-  "totalConstants": 57,
+  "totalConstants": 58,
   "readSets": [
     {
       "type": "uw_review",
@@ -44,8 +44,9 @@
         "DocLoanStructureInterestRate",
         "DocLoanStructureAdminFee",
         "DocLoanStructureFiduciaFee",
+        "DocLoanStructureProvisionFee",
         "DocLoanStructureInsuranceType",
-        "DocLoanStructureAssetInsurancePremium",
+        "DocLoanStructureTotalInsurancePremium",
         "DocLoanStructureMonthlyInstallment",
         "DocLoanStructureNtfAmount",
         "DocLoanStructureProvisionalAmount",
@@ -124,7 +125,6 @@
     "DocDocumentsKirDocumentDocumentId": "$.documents.kir_document.document_id",
     "DocId": "$.id",
     "DocLoanStructureAdminFee": "$.loan_structure.admin_fee",
-    "DocLoanStructureAssetInsurancePremium": "$.loan_structure.asset_insurance_premium",
     "DocLoanStructureBfiPrice": "$.loan_structure.bfi_price",
     "DocLoanStructureCapitalizedNtfAmount": "$.loan_structure.capitalized_ntf_amount",
     "DocLoanStructureFiduciaFee": "$.loan_structure.fiducia_fee",
@@ -141,8 +141,10 @@
     "DocLoanStructureOnTheRoadPrice": "$.loan_structure.on_the_road_price",
     "DocLoanStructureProductOffering": "$.loan_structure.product_offering",
     "DocLoanStructureProductOfferingLabel": "$.loan_structure.product_offering_label",
+    "DocLoanStructureProvisionFee": "$.loan_structure.provision_fee",
     "DocLoanStructureProvisionalAmount": "$.loan_structure.provisional_amount",
     "DocLoanStructureTenure": "$.loan_structure.tenure",
+    "DocLoanStructureTotalInsurancePremium": "$.loan_structure.total_insurance_premium",
     "DocProcessOperationsTaskDocumentReceiveEmployeeId": "$.process.operations_task.document_receive_employee_id",
     "DocProcessOperationsTaskProcessingBranchId": "$.process.operations_task.processing_branch_id",
     "DocProcessSurveyTaskSurveyBranchId": "$.process.survey_task.survey_branch_id",
