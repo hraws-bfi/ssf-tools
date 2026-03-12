@@ -1,11 +1,11 @@
 {
   "system": "disburse",
-  "extractedAt": "2026-03-12T03:22:21.592Z",
+  "extractedAt": "2026-03-12T08:31:26.025Z",
   "gitInfo": {
-    "commitId": "6c3e809b32d5ef1b42c687ba48990c00fcc4b53b",
-    "shortCommitId": "6c3e809",
-    "commitUrl": "https://github.com/bfi-finance/lora-disburse-ssf/commit/6c3e809b32d5ef1b42c687ba48990c00fcc4b53b",
-    "treeUrl": "https://github.com/bfi-finance/lora-disburse-ssf/tree/6c3e809b32d5ef1b42c687ba48990c00fcc4b53b"
+    "commitId": "c600f3a3b5ba593eca68302161df3141b7552ad5",
+    "shortCommitId": "c600f3a",
+    "commitUrl": "https://github.com/bfi-finance/lora-disburse-ssf/commit/c600f3a3b5ba593eca68302161df3141b7552ad5",
+    "treeUrl": "https://github.com/bfi-finance/lora-disburse-ssf/tree/c600f3a3b5ba593eca68302161df3141b7552ad5"
   },
   "searchPaths": [
     "internal/process/tasking/",
@@ -15,7 +15,7 @@
   ],
   "totalFiles": 59,
   "totalReadSets": 55,
-  "totalConstants": 213,
+  "totalConstants": 214,
   "readSets": [
     {
       "type": "validation",
@@ -75,6 +75,8 @@
         "DocStatusApplication",
         "DocProcessUnderwritingTaskApplicantStatus",
         "DocShowroomName",
+        "DocCustomerRating",
+        "DocMouMonitoringId",
         "DocLoanStructureLoanCalculatorId",
         "DocProductType",
         "DocLoanStructureProductOffering",
@@ -85,7 +87,6 @@
         "DocLoanStructureCapitalizedNtfAmount",
         "DocLoanStructureLtv",
         "DocLoanStructureIsNst",
-        "DocLoanStructureNstField",
         "DocLoanStructureTenure",
         "DocLoanStructureFlatRate",
         "DocLoanStructureInterestRate",
@@ -901,6 +902,7 @@
     "DocCustomerPersona": "$.customer.persona",
     "DocCustomerPkd": "$.customer.pkd",
     "DocCustomerProfile": "$.customer.profile",
+    "DocCustomerRating": "$.customer.rating",
     "DocDocumentsAgreementFppDocumentId": "$.documents.agreement_fpp.document_id",
     "DocDocumentsAgreementRingkasanInformasiDocumentId": "$.documents.agreement_ringkasan_informasi.document_id",
     "DocDocumentsAgreementSuratPermohonanKonsumenDocumentId": "$.documents.agreement_surat_permohonan_konsumen.document_id",
@@ -944,7 +946,6 @@
     "DocLoanStructureLtv": "$.loan_structure.ltv",
     "DocLoanStructureMaxFunding": "$.loan_structure.max_funding",
     "DocLoanStructureMonthlyInstallment": "$.loan_structure.monthly_installment",
-    "DocLoanStructureNstField": "$.loan_structure.nst_field",
     "DocLoanStructureNtfAmount": "$.loan_structure.ntf_amount",
     "DocLoanStructureOnTheRoadPrice": "$.loan_structure.on_the_road_price",
     "DocLoanStructureProductOffering": "$.loan_structure.product_offering",
@@ -953,6 +954,7 @@
     "DocLoanStructureProvisionalAmount": "$.loan_structure.provisional_amount",
     "DocLoanStructureTenure": "$.loan_structure.tenure",
     "DocLoanStructureTotalInsurancePremium": "$.loan_structure.total_insurance_premium",
+    "DocMouMonitoringId": "$.mou_monitoring_id",
     "DocProcessOperationsTaskOperationBranchNotes": "$.process.operations_task.operation_branch_notes",
     "DocProcessOperationsTaskOperationBranchSendTime": "$.process.operations_task.operation_branch_send_time",
     "DocProcessOperationsTaskProcessingBranchId": "$.process.operations_task.processing_branch_id",
