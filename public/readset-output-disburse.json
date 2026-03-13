@@ -1,11 +1,11 @@
 {
   "system": "disburse",
-  "extractedAt": "2026-03-12T08:31:26.025Z",
+  "extractedAt": "2026-03-13T06:23:54.693Z",
   "gitInfo": {
-    "commitId": "c600f3a3b5ba593eca68302161df3141b7552ad5",
-    "shortCommitId": "c600f3a",
-    "commitUrl": "https://github.com/bfi-finance/lora-disburse-ssf/commit/c600f3a3b5ba593eca68302161df3141b7552ad5",
-    "treeUrl": "https://github.com/bfi-finance/lora-disburse-ssf/tree/c600f3a3b5ba593eca68302161df3141b7552ad5"
+    "commitId": "91d4c25188dd9b9c7c3be95396a741cc283271c2",
+    "shortCommitId": "91d4c25",
+    "commitUrl": "https://github.com/bfi-finance/lora-disburse-ssf/commit/91d4c25188dd9b9c7c3be95396a741cc283271c2",
+    "treeUrl": "https://github.com/bfi-finance/lora-disburse-ssf/tree/91d4c25188dd9b9c7c3be95396a741cc283271c2"
   },
   "searchPaths": [
     "internal/process/tasking/",
@@ -13,8 +13,8 @@
     "internal/process/operation/",
     "internal/process/scoring/"
   ],
-  "totalFiles": 59,
-  "totalReadSets": 55,
+  "totalFiles": 60,
+  "totalReadSets": 56,
   "totalConstants": 214,
   "readSets": [
     {
@@ -755,6 +755,12 @@
         "DocCustomerCompanyPersonInChargeKtpName",
         "DocCustomerCompanyPersonInChargeKtpBirthDate",
         "DocCustomerCompanyPersonInChargeKtpBirthPlace"
+      ]
+    },
+    {
+      "type": "bm_revision",
+      "readSet": [
+        "DocId"
       ]
     }
   ],
