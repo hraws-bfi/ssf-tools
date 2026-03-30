@@ -1,11 +1,11 @@
 {
   "system": "disburse",
-  "extractedAt": "2026-03-26T10:11:43.209Z",
+  "extractedAt": "2026-03-30T04:24:45.264Z",
   "gitInfo": {
-    "commitId": "c8880fd5cbce204702610f1d35c702f4b64b3cdc",
-    "shortCommitId": "c8880fd",
-    "commitUrl": "https://github.com/bfi-finance/lora-disburse-ssf/commit/c8880fd5cbce204702610f1d35c702f4b64b3cdc",
-    "treeUrl": "https://github.com/bfi-finance/lora-disburse-ssf/tree/c8880fd5cbce204702610f1d35c702f4b64b3cdc"
+    "commitId": "8fc2a78c1ba19734caa5f583085e556d89b21dee",
+    "shortCommitId": "8fc2a78",
+    "commitUrl": "https://github.com/bfi-finance/lora-disburse-ssf/commit/8fc2a78c1ba19734caa5f583085e556d89b21dee",
+    "treeUrl": "https://github.com/bfi-finance/lora-disburse-ssf/tree/8fc2a78c1ba19734caa5f583085e556d89b21dee"
   },
   "searchPaths": [
     "internal/process/tasking/",
@@ -13,9 +13,9 @@
     "internal/process/operation/",
     "internal/process/scoring/"
   ],
-  "totalFiles": 60,
-  "totalReadSets": 56,
-  "totalConstants": 218,
+  "totalFiles": 61,
+  "totalReadSets": 57,
+  "totalConstants": 217,
   "readSets": [
     {
       "type": "validation",
@@ -88,13 +88,12 @@
         "DocLoanStructureIsNst",
         "DocLoanStructureTenure",
         "DocLoanStructureFlatRate",
-        "DocLoanStructureInterestRate",
+        "DocLoanStructureEffectiveRate",
         "DocLoanStructureAdminFee",
         "DocLoanStructureFiduciaFee",
         "DocLoanStructureProvisionFee",
         "DocLoanStructureInsuranceType",
         "DocLoanStructureTotalInsurancePremium",
-        "DocLoanStructureMonthlyInstallment",
         "DocLoanStructureNtfAmount",
         "DocLoanStructureProvisionalAmount",
         "DocAssetConditionNotes",
@@ -103,6 +102,7 @@
         "DocAssetAssetCode",
         "DocAssetManufacturingYear",
         "DocAssetResaleValueCategory",
+        "DocAssetTaxNoticeStatus",
         "DocAssetTaxNoticeExpirationDate",
         "DocAssetUnitCondition",
         "DocDocumentsBankAccountBookDocumentId",
@@ -145,6 +145,12 @@
       "readSet": [
         "DocProcessUnderwritingTaskApplicantStatus",
         "DocProcessOperationsTaskOperationBranchSendTime"
+      ]
+    },
+    {
+      "type": "validation_revision",
+      "readSet": [
+        "DocId"
       ]
     },
     {
@@ -948,15 +954,14 @@
     "DocLoanStructureAdminFee": "$.loan_structure.admin_fee",
     "DocLoanStructureBfiPrice": "$.loan_structure.bfi_price",
     "DocLoanStructureCapitalizedNtfAmount": "$.loan_structure.capitalized_ntf_amount",
+    "DocLoanStructureEffectiveRate": "$.loan_structure.effective_rate",
     "DocLoanStructureFiduciaFee": "$.loan_structure.fiducia_fee",
     "DocLoanStructureFlatRate": "$.loan_structure.flat_rate",
     "DocLoanStructureInsuranceType": "$.loan_structure.insurance_type",
-    "DocLoanStructureInterestRate": "$.loan_structure.interest_rate",
     "DocLoanStructureIsNst": "$.loan_structure.is_nst",
     "DocLoanStructureLoanCalculatorId": "$.loan_structure.loan_calculator_id",
     "DocLoanStructureLtv": "$.loan_structure.ltv",
     "DocLoanStructureMaxFunding": "$.loan_structure.max_funding",
-    "DocLoanStructureMonthlyInstallment": "$.loan_structure.monthly_installment",
     "DocLoanStructureNtfAmount": "$.loan_structure.ntf_amount",
     "DocLoanStructureOnTheRoadPrice": "$.loan_structure.on_the_road_price",
     "DocLoanStructureProductOffering": "$.loan_structure.product_offering",
