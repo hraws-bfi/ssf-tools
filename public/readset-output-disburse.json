@@ -1,11 +1,11 @@
 {
   "system": "disburse",
-  "extractedAt": "2026-03-30T04:24:45.264Z",
+  "extractedAt": "2026-04-07T10:47:22.492Z",
   "gitInfo": {
-    "commitId": "8fc2a78c1ba19734caa5f583085e556d89b21dee",
-    "shortCommitId": "8fc2a78",
-    "commitUrl": "https://github.com/bfi-finance/lora-disburse-ssf/commit/8fc2a78c1ba19734caa5f583085e556d89b21dee",
-    "treeUrl": "https://github.com/bfi-finance/lora-disburse-ssf/tree/8fc2a78c1ba19734caa5f583085e556d89b21dee"
+    "commitId": "666a4df5a9c3096ac03036325a09a6971d2abb81",
+    "shortCommitId": "666a4df",
+    "commitUrl": "https://github.com/bfi-finance/lora-disburse-ssf/commit/666a4df5a9c3096ac03036325a09a6971d2abb81",
+    "treeUrl": "https://github.com/bfi-finance/lora-disburse-ssf/tree/666a4df5a9c3096ac03036325a09a6971d2abb81"
   },
   "searchPaths": [
     "internal/process/tasking/",
@@ -15,7 +15,7 @@
   ],
   "totalFiles": 61,
   "totalReadSets": 57,
-  "totalConstants": 217,
+  "totalConstants": 218,
   "readSets": [
     {
       "type": "validation",
@@ -61,7 +61,8 @@
         "DocAssetTaxNoticeStatus",
         "DocAssetTaxNoticeExpirationDate",
         "DocSurveyFinancingAdditionalFeesChangeDueDateFee",
-        "DocSurveyFinancingAdditionalFeesServiceBureauManagementFee"
+        "DocSurveyFinancingAdditionalFeesServiceBureauManagementFee",
+        "DocProcessOperationsTaskValidationStatus"
       ]
     },
     {
@@ -975,6 +976,7 @@
     "DocProcessOperationsTaskOperationBranchSendTime": "$.process.operations_task.operation_branch_send_time",
     "DocProcessOperationsTaskProcessingBranchId": "$.process.operations_task.processing_branch_id",
     "DocProcessOperationsTaskProcessingBranchName": "$.process.operations_task.processing_branch_name",
+    "DocProcessOperationsTaskValidationStatus": "$.process.operations_task.validation_status",
     "DocProcessSurveyTaskSurveyBranchId": "$.process.survey_task.survey_branch_id",
     "DocProcessSurveyTaskSurveyBranchName": "$.process.survey_task.survey_branch_name",
     "DocProcessSurveyTaskSurveyorEmployeeId": "$.process.survey_task.surveyor_employee_id",

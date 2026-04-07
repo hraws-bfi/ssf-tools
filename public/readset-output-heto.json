@@ -1,0 +1,202 @@
+{
+  "system": "heto",
+  "extractedAt": "2026-04-07T10:35:55.157Z",
+  "gitInfo": {
+    "commitId": "00aaccfd795fd49dac3e2a89c319ccc7e196e171",
+    "shortCommitId": "00aaccf",
+    "commitUrl": "https://github.com/bfi-finance/lora-mou-heto-machinery/commit/00aaccfd795fd49dac3e2a89c319ccc7e196e171",
+    "treeUrl": "https://github.com/bfi-finance/lora-mou-heto-machinery/tree/00aaccfd795fd49dac3e2a89c319ccc7e196e171"
+  },
+  "searchPaths": [
+    "internal/process/tasking/",
+    "internal/process/document/",
+    "internal/process/operation/",
+    "internal/process/scoring/"
+  ],
+  "totalFiles": 15,
+  "totalReadSets": 11,
+  "totalConstants": 43,
+  "readSets": [
+    {
+      "type": "mou",
+      "readSet": [
+        "DocId",
+        "DocProcessMouNumber",
+        "DocBranchId",
+        "DocBranchBranchName",
+        "DocCustomerName",
+        "DocCustomerProfile",
+        "DocStatusTimestampsCreated",
+        "DocLoanStructureOfferingLetterSupplier",
+        "DocProductId",
+        "DocProcessUnderwritingTaskApplicantStatus",
+        "DocLoanStructureOfferingLetterNetToFinance",
+        "DocLoanStructureEffectiveRate",
+        "DocLoanStructureTenor",
+        "DocProcessSurveyTaskSurveyorEmployeeName",
+        "DocSourceOfApplicationLabel",
+        "DocLoanStructureProposalStructureType",
+        "DocDocumentsCreditCheckDataSurveyDocumentId",
+        "DocDocumentsCreditCheckImageSurveyDocumentId"
+      ]
+    },
+    {
+      "type": "legality",
+      "readSet": [
+        "DocProductId",
+        "DocStatusApplication",
+        "DocCustomerName",
+        "DocLoanStructureOfferingLetterFinancingType",
+        "DocApplicationDate",
+        "DocCustomerProfile",
+        "DocId",
+        "DocProcessSurveyTaskSurveyorEmployeeName"
+      ]
+    },
+    {
+      "type": "mou_underwriting_revision",
+      "readSet": [
+        "DocId",
+        "DocProcessUnderwritingTaskReturnReason",
+        "DocProcessUnderwritingTaskCreditAnalystEmployeeId",
+        "DocProcessUnderwritingTaskRevisionNotes"
+      ]
+    },
+    {
+      "type": "SubmitPefindoSpouse",
+      "readSet": [
+        "DocId",
+        "DocCustomerProfile",
+        "DocBranchId",
+        "DocLoanStructureOfferingLetterProductCategory",
+        "DocCustomerIndividualSpouseKtpNik",
+        "DocCustomerIndividualSpouseKtpName",
+        "DocCustomerIndividualSpouseKtpBirthDate",
+        "DocCustomerIndividualSpouseKtpBirthPlace",
+        "DocDocumentsSpouseKtpDocumentId",
+        "DocDocumentsFamilyCardDocumentId"
+      ]
+    },
+    {
+      "type": "SubmitPefindoCustomer",
+      "readSet": [
+        "DocId",
+        "DocBranchId",
+        "DocLoanStructureOfferingLetterProductCategory",
+        "DocCustomerProfile",
+        "DocCustomerIndividualKtpNik",
+        "DocCustomerIndividualKtpName",
+        "DocCustomerIndividualKtpBirthDate",
+        "DocCustomerIndividualKtpBirthPlace",
+        "DocDocumentsKtpDocumentId",
+        "DocDocumentsFamilyCardDocumentId"
+      ]
+    },
+    {
+      "type": "SubmitPefindoCompany",
+      "readSet": [
+        "DocId",
+        "DocCustomerProfile",
+        "DocBranchId",
+        "DocLoanStructureOfferingLetterProductCategory",
+        "DocCustomerNpwpNumber",
+        "DocCustomerName",
+        "DocCustomerCompanyEstablishedYear",
+        "DocDocumentsNpwpDocumentId"
+      ]
+    },
+    {
+      "type": "CheckPefindoSpouseScoringProcess",
+      "readSet": [
+        "DocId",
+        "DocProcessCreditCheckCustomerIndividualSpousePefindoProcessId"
+      ]
+    },
+    {
+      "type": "CheckPefindoCustomerScoringProcess",
+      "readSet": [
+        "DocId",
+        "DocProcessCreditCheckCustomerIndividualPefindoProcessId"
+      ]
+    },
+    {
+      "type": "CheckPefindoCompanyScoringProcess",
+      "readSet": [
+        "DocId",
+        "DocProcessCreditCheckCustomerCompanyPersonInChargePefindoProcessId"
+      ]
+    },
+    {
+      "type": "check_negative_list_personal_spouse",
+      "readSet": [
+        "DocId",
+        "DocCustomerProfile",
+        "DocBranchId",
+        "DocCustomerIndividualKtpMaritalStatusCode",
+        "DocCustomerIndividualSpouseKtpNik",
+        "DocCustomerIndividualSpouseKtpName",
+        "DocCustomerIndividualSpouseKtpBirthDate",
+        "DocCustomerIndividualSpouseKtpBirthPlace",
+        "DocProductId"
+      ]
+    },
+    {
+      "type": "check_negative_list_personal",
+      "readSet": [
+        "DocId",
+        "DocCustomerProfile",
+        "DocBranchId",
+        "DocCustomerIndividualKtpNik",
+        "DocCustomerIndividualKtpName",
+        "DocCustomerIndividualKtpBirthDate",
+        "DocCustomerIndividualKtpBirthPlace",
+        "DocProductId"
+      ]
+    }
+  ],
+  "constants": {
+    "DocApplicationDate": "$.application_date",
+    "DocBranchBranchName": "$.branch.branch_name",
+    "DocBranchId": "$.branch.id",
+    "DocCustomerCompanyEstablishedYear": "$.customer.company.established_year",
+    "DocCustomerIndividualKtpBirthDate": "$.customer.individual.ktp.birth_date",
+    "DocCustomerIndividualKtpBirthPlace": "$.customer.individual.ktp.birth_place",
+    "DocCustomerIndividualKtpMaritalStatusCode": "$.customer.individual.ktp.marital_status_code",
+    "DocCustomerIndividualKtpName": "$.customer.individual.ktp.name",
+    "DocCustomerIndividualKtpNik": "$.customer.individual.ktp.nik",
+    "DocCustomerIndividualSpouseKtpBirthDate": "$.customer.individual.spouse.ktp.birth_date",
+    "DocCustomerIndividualSpouseKtpBirthPlace": "$.customer.individual.spouse.ktp.birth_place",
+    "DocCustomerIndividualSpouseKtpName": "$.customer.individual.spouse.ktp.name",
+    "DocCustomerIndividualSpouseKtpNik": "$.customer.individual.spouse.ktp.nik",
+    "DocCustomerName": "$.customer.name",
+    "DocCustomerNpwpNumber": "$.customer.npwp.number",
+    "DocCustomerProfile": "$.customer.profile",
+    "DocDocumentsCreditCheckDataSurveyDocumentId": "$.documents.credit_check_data_survey.document_id",
+    "DocDocumentsCreditCheckImageSurveyDocumentId": "$.documents.credit_check_image_survey.document_id",
+    "DocDocumentsFamilyCardDocumentId": "$.documents.family_card.document_id",
+    "DocDocumentsKtpDocumentId": "$.documents.ktp.document_id",
+    "DocDocumentsNpwpDocumentId": "$.documents.npwp.document_id",
+    "DocDocumentsSpouseKtpDocumentId": "$.documents.spouse_ktp.document_id",
+    "DocId": "$.id",
+    "DocLoanStructureEffectiveRate": "$.loan_structure.effective_rate",
+    "DocLoanStructureOfferingLetterFinancingType": "$.loan_structure.offering_letter.financing_type",
+    "DocLoanStructureOfferingLetterNetToFinance": "$.loan_structure.offering_letter.net_to_finance",
+    "DocLoanStructureOfferingLetterProductCategory": "$.loan_structure.offering_letter.product_category",
+    "DocLoanStructureOfferingLetterSupplier": "$.loan_structure.offering_letter.supplier",
+    "DocLoanStructureProposalStructureType": "$.loan_structure.proposal_structure_type",
+    "DocLoanStructureTenor": "$.loan_structure.tenor",
+    "DocProcessCreditCheckCustomerCompanyPersonInChargePefindoProcessId": "$.process.credit_check.customer.company.person_in_charge.pefindo.process_id",
+    "DocProcessCreditCheckCustomerIndividualPefindoProcessId": "$.process.credit_check.customer.individual.pefindo.process_id",
+    "DocProcessCreditCheckCustomerIndividualSpousePefindoProcessId": "$.process.credit_check.customer.individual.spouse.pefindo.process_id",
+    "DocProcessMouNumber": "$.process.mou_number",
+    "DocProcessSurveyTaskSurveyorEmployeeName": "$.process.survey_task.surveyor_employee_name",
+    "DocProcessUnderwritingTaskApplicantStatus": "$.process.underwriting_task.applicant_status",
+    "DocProcessUnderwritingTaskCreditAnalystEmployeeId": "$.process.underwriting_task.credit_analyst_employee_id",
+    "DocProcessUnderwritingTaskReturnReason": "$.process.underwriting_task.return_reason",
+    "DocProcessUnderwritingTaskRevisionNotes": "$.process.underwriting_task.revision_notes",
+    "DocProductId": "$.product_id",
+    "DocSourceOfApplicationLabel": "$.source_of_application_label",
+    "DocStatusApplication": "$.status.application",
+    "DocStatusTimestampsCreated": "$.status_timestamps.created"
+  }
+}
