@@ -135,6 +135,7 @@ async function syncReadset({ basePath, outputPublic, system }) {
   const patterns = [
     path.join(basePath, 'internal/process/tasking/**/*.go'),
     path.join(basePath, 'internal/process/document/**/*.go'),
+    path.join(basePath, 'internal/operation/**/impl.go'),
     path.join(basePath, 'internal/process/operation/**/impl.go'),
     path.join(basePath, 'internal/process/scoring/**/impl.go')
   ];
@@ -211,6 +212,7 @@ async function syncReadset({ basePath, outputPublic, system }) {
       searchPaths: [
         'internal/process/tasking/',
         'internal/process/document/',
+        'internal/operation/',
         'internal/process/operation/',
         'internal/process/scoring/'
       ],

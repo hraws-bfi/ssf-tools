@@ -5,7 +5,7 @@ A utility for LORA, to sync readset data and visualize doc revision behavior.
 ## 📥 Installation
 
 ```bash
-git clone https://github.com/wira-bfi/tools.git
+git clone git@github.com:hraws-bfi/ssf-tools.git
 cd <your-project-folder>
 npm install
 ```
@@ -51,3 +51,6 @@ Path is validated to ensure it exists, is a directory, and contains expected Go 
 - Sync output is written only to `public/readset-output-<system>.json`.
 - ReadSet checker systems are loaded from `systems.config.json`.
 - A system is shown in the dropdown only if its output file can be fetched successfully.
+
+
+GH page url: https://hraws-bfi.github.io/ssf-tools/

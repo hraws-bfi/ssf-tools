@@ -9,6 +9,7 @@ const { loadConfig } = require('./systems-config');
 const EXPECTED_GO_PATTERNS = [
   'internal/process/tasking/**/*.go',
   'internal/process/document/**/*.go',
+  'internal/operation/**/impl.go',
   'internal/process/operation/**/impl.go',
   'internal/process/scoring/**/impl.go'
 ];
@@ -62,7 +63,7 @@ async function promptRepoPath(systemKey) {
 
       if (!hasExpectedProcessFiles(repoPath)) {
         console.log(
-          'No expected process files found. Make sure the repo contains internal/process/{tasking,document,operation,scoring}.'
+          'No expected process files found. Make sure the repo contains internal/process/{tasking,document,operation,scoring} or internal/operation.'
         );
         continue;
       }
