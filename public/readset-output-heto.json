@@ -1,11 +1,11 @@
 {
   "system": "heto",
-  "extractedAt": "2026-04-16T08:57:32.826Z",
+  "extractedAt": "2026-05-21T07:02:32.911Z",
   "gitInfo": {
-    "commitId": "12af836129e6095efeb93d5f9d2c261f36e27394",
-    "shortCommitId": "12af836",
-    "commitUrl": "https://github.com/bfi-finance/lora-mou-heto-machinery/commit/12af836129e6095efeb93d5f9d2c261f36e27394",
-    "treeUrl": "https://github.com/bfi-finance/lora-mou-heto-machinery/tree/12af836129e6095efeb93d5f9d2c261f36e27394"
+    "commitId": "aef00fbfb9d68a3c3beb37ceee3cf34e65d8eb2c",
+    "shortCommitId": "aef00fb",
+    "commitUrl": "https://github.com/bfi-finance/lora-mou-heto-machinery/commit/aef00fbfb9d68a3c3beb37ceee3cf34e65d8eb2c",
+    "treeUrl": "https://github.com/bfi-finance/lora-mou-heto-machinery/tree/aef00fbfb9d68a3c3beb37ceee3cf34e65d8eb2c"
   },
   "searchPaths": [
     "internal/process/tasking/",
@@ -14,13 +14,15 @@
     "internal/process/operation/",
     "internal/process/scoring/"
   ],
-  "totalFiles": 17,
-  "totalReadSets": 13,
-  "totalConstants": 91,
+  "totalFiles": 20,
+  "totalReadSets": 14,
+  "totalConstants": 120,
   "readSets": [
     {
       "type": "moucaho",
       "readSet": [
+        "DocProcessUnderwritingTaskBranchId",
+        "DocProcessUnderwritingTaskCreditAnalystEmployeeId",
         "DocId",
         "DocBranchId",
         "DocBranchBranchName",
@@ -61,19 +63,6 @@
         "DocLoanStructureProposalStructureType",
         "DocDocumentsCreditCheckDataSurveyDocumentId",
         "DocDocumentsCreditCheckImageSurveyDocumentId"
-      ]
-    },
-    {
-      "type": "legality",
-      "readSet": [
-        "DocProductId",
-        "DocStatusApplication",
-        "DocCustomerName",
-        "DocLoanStructureOfferingLetterFinancingType",
-        "DocApplicationDate",
-        "DocCustomerProfile",
-        "DocId",
-        "DocProcessSurveyTaskSurveyorEmployeeName"
       ]
     },
     {
@@ -133,12 +122,60 @@
       ]
     },
     {
+      "type": "create_cif",
+      "readSet": [
+        "DocCustomerIndividualKtpName",
+        "DocCustomerIndividualKtpNik",
+        "DocCustomerNpwpType",
+        "DocCustomerNpwpNumber",
+        "DocCustomerIndividualKtpGender",
+        "DocCustomerIndividualKtpBirthDate",
+        "DocCustomerIndividualKtpBirthPlace",
+        "DocCustomerIndividualPhoneNumber",
+        "DocCustomerIndividualKtpReligionCode",
+        "DocCustomerIndividualEducationCode",
+        "DocCustomerIndividualMotherMaidenName",
+        "DocCustomerIndividualKtpMaritalStatusCode",
+        "DocCustomerIndividualEmergencyContact1RelationshipCode",
+        "DocCustomerIndividualEmergencyContact1Name",
+        "DocCustomerIndividualEmergencyContact1PhoneNumber",
+        "DocCustomerIndividualEmergencyContact1AddressStreet",
+        "DocCustomerIndividualEmergencyContact1AddressSubDistrictCode",
+        "DocCustomerIndividualEmergencyContact1AddressRt",
+        "DocCustomerIndividualEmergencyContact1AddressRw",
+        "DocCustomerIndividualEmploymentOccupationCode",
+        "DocCustomerIndividualEmploymentIndustry",
+        "DocCustomerIndividualEmploymentMonthlyIncome",
+        "DocCustomerIndividualEmploymentSinceYear",
+        "DocCustomerIndividualDomicileStreet",
+        "DocCustomerIndividualDomicileSubDistrictCode",
+        "DocCustomerIndividualDomicileRt",
+        "DocCustomerIndividualDomicileRw",
+        "DocCustomerIndividualKtpAddress",
+        "DocCustomerIndividualKtpSubDistrictCode",
+        "DocCustomerIndividualKtpRt",
+        "DocCustomerIndividualKtpRw",
+        "DocCustomerIndividualOwnershipCode",
+        "DocCustomerIndividualStaySince",
+        "DocCustomerIndividualHomeLocation",
+        "DocCustomerIndividualHomePrice",
+        "DocDocumentsKtpDocumentId"
+      ]
+    },
+    {
       "type": "mou_underwriting_revision",
       "readSet": [
         "DocId",
         "DocProcessUnderwritingTaskReturnReason",
         "DocProcessUnderwritingTaskCreditAnalystEmployeeId",
         "DocProcessUnderwritingTaskRevisionNotes"
+      ]
+    },
+    {
+      "type": "mouexpiry",
+      "readSet": [
+        "DocProcessUnderwritingTaskExpiryDate",
+        "DocStatusApplication"
       ]
     },
     {
@@ -234,7 +271,6 @@
     }
   ],
   "constants": {
-    "DocApplicationDate": "$.application_date",
     "DocBranchBranchName": "$.branch.branch_name",
     "DocBranchId": "$.branch.id",
     "DocCustomerCompanyAddressSubDistrictCode": "$.customer.company.address.sub_district_code",
@@ -285,17 +321,46 @@
     "DocCustomerCompanyShareholder1Position": "$.customer.company.shareholder_1.position",
     "DocCustomerCompanyShareholder1RelationshipCode": "$.customer.company.shareholder_1.relationship_code",
     "DocCustomerCompanyShareholder1SharePercentage": "$.customer.company.shareholder_1.share_percentage",
+    "DocCustomerIndividualDomicileRt": "$.customer.individual.domicile.rt",
+    "DocCustomerIndividualDomicileRw": "$.customer.individual.domicile.rw",
+    "DocCustomerIndividualDomicileStreet": "$.customer.individual.domicile.street",
+    "DocCustomerIndividualDomicileSubDistrictCode": "$.customer.individual.domicile.sub_district_code",
+    "DocCustomerIndividualEducationCode": "$.customer.individual.education_code",
+    "DocCustomerIndividualEmergencyContact1AddressRt": "$.customer.individual.emergency_contact_1.address.rt",
+    "DocCustomerIndividualEmergencyContact1AddressRw": "$.customer.individual.emergency_contact_1.address.rw",
+    "DocCustomerIndividualEmergencyContact1AddressStreet": "$.customer.individual.emergency_contact_1.address.street",
+    "DocCustomerIndividualEmergencyContact1AddressSubDistrictCode": "$.customer.individual.emergency_contact_1.address.sub_district_code",
+    "DocCustomerIndividualEmergencyContact1Name": "$.customer.individual.emergency_contact_1.name",
+    "DocCustomerIndividualEmergencyContact1PhoneNumber": "$.customer.individual.emergency_contact_1.phone_number",
+    "DocCustomerIndividualEmergencyContact1RelationshipCode": "$.customer.individual.emergency_contact_1.relationship_code",
+    "DocCustomerIndividualEmploymentIndustry": "$.customer.individual.employment.industry",
+    "DocCustomerIndividualEmploymentMonthlyIncome": "$.customer.individual.employment.monthly_income",
+    "DocCustomerIndividualEmploymentOccupationCode": "$.customer.individual.employment.occupation_code",
+    "DocCustomerIndividualEmploymentSinceYear": "$.customer.individual.employment.since_year",
+    "DocCustomerIndividualHomeLocation": "$.customer.individual.home_location",
+    "DocCustomerIndividualHomePrice": "$.customer.individual.home_price",
+    "DocCustomerIndividualKtpAddress": "$.customer.individual.ktp.address",
     "DocCustomerIndividualKtpBirthDate": "$.customer.individual.ktp.birth_date",
     "DocCustomerIndividualKtpBirthPlace": "$.customer.individual.ktp.birth_place",
+    "DocCustomerIndividualKtpGender": "$.customer.individual.ktp.gender",
     "DocCustomerIndividualKtpMaritalStatusCode": "$.customer.individual.ktp.marital_status_code",
     "DocCustomerIndividualKtpName": "$.customer.individual.ktp.name",
     "DocCustomerIndividualKtpNik": "$.customer.individual.ktp.nik",
+    "DocCustomerIndividualKtpReligionCode": "$.customer.individual.ktp.religion_code",
+    "DocCustomerIndividualKtpRt": "$.customer.individual.ktp.rt",
+    "DocCustomerIndividualKtpRw": "$.customer.individual.ktp.rw",
+    "DocCustomerIndividualKtpSubDistrictCode": "$.customer.individual.ktp.sub_district_code",
+    "DocCustomerIndividualMotherMaidenName": "$.customer.individual.mother_maiden_name",
+    "DocCustomerIndividualOwnershipCode": "$.customer.individual.ownership_code",
+    "DocCustomerIndividualPhoneNumber": "$.customer.individual.phone_number",
     "DocCustomerIndividualSpouseKtpBirthDate": "$.customer.individual.spouse.ktp.birth_date",
     "DocCustomerIndividualSpouseKtpBirthPlace": "$.customer.individual.spouse.ktp.birth_place",
     "DocCustomerIndividualSpouseKtpName": "$.customer.individual.spouse.ktp.name",
     "DocCustomerIndividualSpouseKtpNik": "$.customer.individual.spouse.ktp.nik",
+    "DocCustomerIndividualStaySince": "$.customer.individual.stay_since",
     "DocCustomerName": "$.customer.name",
     "DocCustomerNpwpNumber": "$.customer.npwp.number",
+    "DocCustomerNpwpType": "$.customer.npwp.type",
     "DocCustomerProfile": "$.customer.profile",
     "DocDocumentsCreditCheckDataSurveyDocumentId": "$.documents.credit_check_data_survey.document_id",
     "DocDocumentsCreditCheckImageSurveyDocumentId": "$.documents.credit_check_image_survey.document_id",
@@ -305,7 +370,6 @@
     "DocDocumentsSpouseKtpDocumentId": "$.documents.spouse_ktp.document_id",
     "DocId": "$.id",
     "DocLoanStructureEffectiveRate": "$.loan_structure.effective_rate",
-    "DocLoanStructureOfferingLetterFinancingType": "$.loan_structure.offering_letter.financing_type",
     "DocLoanStructureOfferingLetterNetToFinance": "$.loan_structure.offering_letter.net_to_finance",
     "DocLoanStructureOfferingLetterProductCategory": "$.loan_structure.offering_letter.product_category",
     "DocLoanStructureOfferingLetterSupplier": "$.loan_structure.offering_letter.supplier",
@@ -317,7 +381,9 @@
     "DocProcessMouNumber": "$.process.mou_number",
     "DocProcessSurveyTaskSurveyorEmployeeName": "$.process.survey_task.surveyor_employee_name",
     "DocProcessUnderwritingTaskApplicantStatus": "$.process.underwriting_task.applicant_status",
+    "DocProcessUnderwritingTaskBranchId": "$.process.underwriting_task.branch_id",
     "DocProcessUnderwritingTaskCreditAnalystEmployeeId": "$.process.underwriting_task.credit_analyst_employee_id",
+    "DocProcessUnderwritingTaskExpiryDate": "$.process.underwriting_task.expiry_date",
     "DocProcessUnderwritingTaskReturnReason": "$.process.underwriting_task.return_reason",
     "DocProcessUnderwritingTaskRevisionNotes": "$.process.underwriting_task.revision_notes",
     "DocProcessUnderwritingTaskSkipCaHo": "$.process.underwriting_task.skip_ca_ho",

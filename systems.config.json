@@ -17,6 +17,11 @@
       "outputPublic": "public/readset-output-ndf.json"
     },
     {
+      "key": "ops-heto",
+      "name": "OPS-HETO",
+      "outputPublic": "public/readset-output-ops-heto.json"
+    },
+    {
       "key": "ssf",
       "name": "SSF",
       "outputPublic": "public/readset-output-ssf.json"

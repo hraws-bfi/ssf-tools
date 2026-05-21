@@ -1,0 +1,70 @@
+{
+  "system": "ops-heto",
+  "extractedAt": "2026-05-21T07:04:59.394Z",
+  "gitInfo": {
+    "commitId": "c7118374512c99cf3fef3396b05935fbdd4da610",
+    "shortCommitId": "c711837",
+    "commitUrl": "https://github.com/bfi-finance/lora-mou-operation-heto-machinery/commit/c7118374512c99cf3fef3396b05935fbdd4da610",
+    "treeUrl": "https://github.com/bfi-finance/lora-mou-operation-heto-machinery/tree/c7118374512c99cf3fef3396b05935fbdd4da610"
+  },
+  "searchPaths": [
+    "internal/process/tasking/",
+    "internal/process/document/",
+    "internal/operation/",
+    "internal/process/operation/",
+    "internal/process/scoring/"
+  ],
+  "totalFiles": 7,
+  "totalReadSets": 3,
+  "totalConstants": 15,
+  "readSets": [
+    {
+      "type": "legality",
+      "readSet": [
+        "DocProductId",
+        "DocStatusApplication",
+        "DocCustomerName",
+        "DocLoanStructureOfferingLetterFinancingType",
+        "DocApplicationDate",
+        "DocCustomerProfile",
+        "DocId",
+        "DocProcessSurveyTaskSurveyorEmployeeName"
+      ]
+    },
+    {
+      "type": "publish_mou",
+      "readSet": [
+        "DocProcessMouNumber",
+        "DocApplicationId"
+      ]
+    },
+    {
+      "type": "create_mou",
+      "readSet": [
+        "DocApplicationId",
+        "DocCustomerCifId",
+        "DocLoanStructureTotalPlafondAmount",
+        "DocLoanStructureTenor",
+        "DocBranchId",
+        "DocLoanStructureEffectiveRate"
+      ]
+    }
+  ],
+  "constants": {
+    "DocApplicationDate": "$.application_date",
+    "DocApplicationId": "$.application_id",
+    "DocBranchId": "$.branch.id",
+    "DocCustomerCifId": "$.customer.cif_id",
+    "DocCustomerName": "$.customer.name",
+    "DocCustomerProfile": "$.customer.profile",
+    "DocId": "$.id",
+    "DocLoanStructureEffectiveRate": "$.loan_structure.effective_rate",
+    "DocLoanStructureOfferingLetterFinancingType": "$.loan_structure.offering_letter.financing_type",
+    "DocLoanStructureTenor": "$.loan_structure.tenor",
+    "DocLoanStructureTotalPlafondAmount": "$.loan_structure.total_plafond_amount",
+    "DocProcessMouNumber": "$.process.mou_number",
+    "DocProcessSurveyTaskSurveyorEmployeeName": "$.process.survey_task.surveyor_employee_name",
+    "DocProductId": "$.product_id",
+    "DocStatusApplication": "$.status.application"
+  }
+}
