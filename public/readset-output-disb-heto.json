@@ -1,0 +1,117 @@
+{
+  "system": "disb-heto",
+  "extractedAt": "2026-05-22T05:51:00.996Z",
+  "gitInfo": {
+    "commitId": "472c578f14e5e7a9e35f4178f74326f28c812881",
+    "shortCommitId": "472c578",
+    "commitUrl": "https://github.com/bfi-finance/lora-disburse-heto-machinery/commit/472c578f14e5e7a9e35f4178f74326f28c812881",
+    "treeUrl": "https://github.com/bfi-finance/lora-disburse-heto-machinery/tree/472c578f14e5e7a9e35f4178f74326f28c812881"
+  },
+  "searchPaths": [
+    "internal/process/tasking/",
+    "internal/process/document/",
+    "internal/operation/",
+    "internal/process/operation/",
+    "internal/process/scoring/"
+  ],
+  "totalFiles": 8,
+  "totalReadSets": 4,
+  "totalConstants": 34,
+  "readSets": [
+    {
+      "type": "operationlegal",
+      "readSet": [
+        "DocProcessOperationsTaskLegalEmployeeId"
+      ]
+    },
+    {
+      "type": "operation",
+      "readSet": [
+        "DocAgreementNumber",
+        "DocApplicationDate",
+        "DocCustomerName",
+        "DocStatusApplication",
+        "DocProductId",
+        "DocBranchId",
+        "DocCustomerProfile",
+        "DocFinancingType",
+        "DocProcessSurveyTaskSurveyBranchName",
+        "DocProcessSurveyTaskSurveyorEmployeeName"
+      ]
+    },
+    {
+      "type": "reserved_agreement",
+      "readSet": [
+        "DocBranchId",
+        "DocId"
+      ]
+    },
+    {
+      "type": "create_agreement",
+      "readSet": [
+        "DocBranchId",
+        "DocSoaId",
+        "DocStatusTimestampsBmApproved",
+        "DocProcessSurveyTaskSurveyorEmployeeId",
+        "DocId",
+        "DocCustomerBankAccountName",
+        "DocCustomerBankAccountNumber",
+        "DocCustomerBankBankCode",
+        "DocAddCollateralAddCollateral1AssetCode",
+        "DocAddCollateralAddCollateral1AssetUsageCode",
+        "DocAddCollateralAddCollateral1AssetAttributesChassisNumber",
+        "DocAddCollateralAddCollateral1AssetAttributesEngineNumber",
+        "DocAddCollateralAddCollateral1AssetAttributesLicensePlate",
+        "DocAddCollateralAddCollateral1Year",
+        "DocAddCollateralAddCollateral1AssetAttributesTaxNoticeExpirationDate",
+        "DocAddCollateralAddCollateral1AssetAttributesUnitColor",
+        "DocCustomerCifId",
+        "DocCustomerProfile",
+        "DocLoanStructureLoanCalculatorId",
+        "DocLoanStructureTenor",
+        "DocProductId",
+        "DocPot",
+        "DocMarketingId",
+        "DocCustomerType",
+        "DocFinancePurposeTypeCode",
+        "DocMouNumber"
+      ]
+    }
+  ],
+  "constants": {
+    "DocAddCollateralAddCollateral1AssetAttributesChassisNumber": "$.add_collateral.add_collateral_1.asset_attributes.chassis_number",
+    "DocAddCollateralAddCollateral1AssetAttributesEngineNumber": "$.add_collateral.add_collateral_1.asset_attributes.engine_number",
+    "DocAddCollateralAddCollateral1AssetAttributesLicensePlate": "$.add_collateral.add_collateral_1.asset_attributes.license_plate",
+    "DocAddCollateralAddCollateral1AssetAttributesTaxNoticeExpirationDate": "$.add_collateral.add_collateral_1.asset_attributes.tax_notice.expiration_date",
+    "DocAddCollateralAddCollateral1AssetAttributesUnitColor": "$.add_collateral.add_collateral_1.asset_attributes.unit_color",
+    "DocAddCollateralAddCollateral1AssetCode": "$.add_collateral.add_collateral_1.asset_code",
+    "DocAddCollateralAddCollateral1AssetUsageCode": "$.add_collateral.add_collateral_1.asset_usage_code",
+    "DocAddCollateralAddCollateral1Year": "$.add_collateral.add_collateral_1.year",
+    "DocAgreementNumber": "$.agreement.number",
+    "DocApplicationDate": "$.application_date",
+    "DocBranchId": "$.branch.id",
+    "DocCustomerBankAccountName": "$.customer.bank.account_name",
+    "DocCustomerBankAccountNumber": "$.customer.bank.account_number",
+    "DocCustomerBankBankCode": "$.customer.bank.bank_code",
+    "DocCustomerCifId": "$.customer.cif_id",
+    "DocCustomerName": "$.customer.name",
+    "DocCustomerProfile": "$.customer.profile",
+    "DocCustomerType": "$.customer.type",
+    "DocFinancePurposeTypeCode": "$.finance_purpose_type_code",
+    "DocFinancingType": "$.financing_type",
+    "DocId": "$.id",
+    "DocLoanStructureLoanCalculatorId": "$.loan_structure.loan_calculator_id",
+    "DocLoanStructureTenor": "$.loan_structure.tenor",
+    "DocMarketingId": "$.marketing_id",
+    "DocMouNumber": "$.mou_number",
+    "DocPot": "$.pot",
+    "DocProcessOperationsTaskLegalEmployeeId": "$.process.operations_task.legal_employee_id",
+    "DocProcessSurveyTaskSurveyBranchName": "$.process.survey_task.survey_branch_name",
+    "DocProcessSurveyTaskSurveyorEmployeeId": "$.process.survey_task.surveyor_employee_id",
+    "DocProcessSurveyTaskSurveyorEmployeeName": "$.process.survey_task.surveyor_employee_name",
+    "DocProductId": "$.product_id",
+    "DocSoaId": "$.soa_id",
+    "DocStatusApplication": "$.status.application",
+    "DocStatusTimestampsBmApproved": "$.status_timestamps.bm_approved"
+  }
+}

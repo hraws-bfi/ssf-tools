@@ -2,6 +2,11 @@
   "version": 1,
   "systems": [
     {
+      "key": "disb-heto",
+      "name": "DISB-HETO",
+      "outputPublic": "public/readset-output-disb-heto.json"
+    },
+    {
       "key": "disburse",
       "name": "DISBURSE",
       "outputPublic": "public/readset-output-disburse.json"
