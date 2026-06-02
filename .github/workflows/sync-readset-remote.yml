@@ -14,14 +14,6 @@ on:
           - ndf
           - ops-heto
           - ssf
-      repo_url:
-        description: "Git repo URL to scan (HTTPS or SSH)"
-        required: true
-        type: string
-      repo_ref:
-        description: "Optional branch/tag/SHA (defaults to repo default branch)"
-        required: false
-        type: string
       commit_changes:
         description: "Commit updated output file back to this repo"
         required: true
@@ -50,12 +42,46 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Resolve source repo from systems config
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          SYSTEM_KEY="${{ inputs.system_key }}"
+          REPO_URL="$(node -e "
+            const fs = require('node:fs');
+            const cfg = JSON.parse(fs.readFileSync('systems.config.json', 'utf8'));
+            const system = (cfg.systems || []).find((item) => item.key === process.argv[1]);
+            if (!system) {
+              console.error('Unknown system key: ' + process.argv[1]);
+              process.exit(1);
+            }
+            if (!system.sourceRepoUrl || !String(system.sourceRepoUrl).trim()) {
+              console.error('Missing sourceRepoUrl for system: ' + process.argv[1]);
+              process.exit(1);
+            }
+            process.stdout.write(String(system.sourceRepoUrl).trim());
+          " "$SYSTEM_KEY")"
+
+          REPO_REF="$(node -e "
+            const fs = require('node:fs');
+            const cfg = JSON.parse(fs.readFileSync('systems.config.json', 'utf8'));
+            const system = (cfg.systems || []).find((item) => item.key === process.argv[1]);
+            if (!system) {
+              process.exit(1);
+            }
+            process.stdout.write(String(system.sourceRepoRef || '').trim());
+          " "$SYSTEM_KEY")"
+
+          echo "RESOLVED_REPO_URL=$REPO_URL" >> "$GITHUB_ENV"
+          echo "RESOLVED_REPO_REF=$REPO_REF" >> "$GITHUB_ENV"
+
       - name: Clone source repository
         shell: bash
         run: |
           set -euo pipefail
           SOURCE_DIR="$RUNNER_TEMP/source-repo"
-          RAW_REPO_URL="${{ inputs.repo_url }}"
+          RAW_REPO_URL="$RESOLVED_REPO_URL"
           REPO_URL="$RAW_REPO_URL"
 
           # Support accidental markdown-style input like [label](https://github.com/org/repo.git)
@@ -67,16 +93,16 @@ jobs:
           # If cloning a private GitHub repo over HTTPS, use optional secret token.
           if [[ "$REPO_URL" == https://github.com/* ]] && [[ -n "${SOURCE_REPO_TOKEN:-}" ]]; then
             AUTH_B64="$(printf 'x-access-token:%s' "$SOURCE_REPO_TOKEN" | base64 | tr -d '\n')"
-            if [ -n "${{ inputs.repo_ref }}" ]; then
+            if [ -n "$RESOLVED_REPO_REF" ]; then
               git -c "http.https://github.com/.extraheader=AUTHORIZATION: basic $AUTH_B64" \
-                clone --depth 1 --branch "${{ inputs.repo_ref }}" "$REPO_URL" "$SOURCE_DIR"
+                clone --depth 1 --branch "$RESOLVED_REPO_REF" "$REPO_URL" "$SOURCE_DIR"
             else
               git -c "http.https://github.com/.extraheader=AUTHORIZATION: basic $AUTH_B64" \
                 clone --depth 1 "$REPO_URL" "$SOURCE_DIR"
             fi
           else
-            if [ -n "${{ inputs.repo_ref }}" ]; then
-              git clone --depth 1 --branch "${{ inputs.repo_ref }}" "$REPO_URL" "$SOURCE_DIR"
+            if [ -n "$RESOLVED_REPO_REF" ]; then
+              git clone --depth 1 --branch "$RESOLVED_REPO_REF" "$REPO_URL" "$SOURCE_DIR"
             else
               git clone --depth 1 "$REPO_URL" "$SOURCE_DIR"
             fi

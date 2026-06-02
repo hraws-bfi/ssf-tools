@@ -65,9 +65,11 @@ Manual workflow is available at:
 
 From Actions → **Sync Readset (Remote Repo)**, provide:
 - `system_key` (from `systems.config.json`)
-- `repo_url` (raw Git URL to scan, e.g. `https://github.com/org/repo.git`)
-- `repo_ref` (optional branch/tag/SHA)
 - `commit_changes` (whether to push updated `public/readset-output-<system>.json`)
+
+Remote source repo is now resolved from each system config entry:
+- `sourceRepoUrl` (required for workflow use)
+- `sourceRepoRef` (optional branch/tag/SHA)
 
 If source repo is private and you use HTTPS URL, add repository secret:
 - `SOURCE_REPO_TOKEN`: a GitHub token with read access to the source repository
@@ -77,7 +79,9 @@ Security note:
 
 How it works:
 - checks out this tools repo
-- clones the provided remote repo URL
+- looks up selected system in `systems.config.json`
+- reads `sourceRepoUrl` (+ optional `sourceRepoRef`) from that system
+- clones the resolved remote repo URL
 - runs sync using `--repo-path` with the cloned local directory
 - uploads `public/readset-output-<system>.json` as an artifact
 - optionally commits and pushes the updated output file

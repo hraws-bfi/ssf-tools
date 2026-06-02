@@ -4,17 +4,20 @@
     {
       "key": "disb-heto",
       "name": "DISB-HETO",
-      "outputPublic": "public/readset-output-disb-heto.json"
+      "outputPublic": "public/readset-output-disb-heto.json",
+      "sourceRepoUrl": "https://github.com/bfi-finance/lora-disburse-heto-machinery.git"
     },
     {
       "key": "disburse",
       "name": "DISBURSE",
-      "outputPublic": "public/readset-output-disburse.json"
+      "outputPublic": "public/readset-output-disburse.json",
+      "sourceRepoUrl": "https://github.com/bfi-finance/lora-disburse-ssf.git"
     },
     {
       "key": "heto",
       "name": "HETO",
-      "outputPublic": "public/readset-output-heto.json"
+      "outputPublic": "public/readset-output-heto.json",
+      "sourceRepoUrl": "https://github.com/bfi-finance/lora-mou-heto-machinery.git"
     },
     {
       "key": "ndf",
@@ -24,12 +27,14 @@
     {
       "key": "ops-heto",
       "name": "OPS-HETO",
-      "outputPublic": "public/readset-output-ops-heto.json"
+      "outputPublic": "public/readset-output-ops-heto.json",
+      "sourceRepoUrl": "https://github.com/bfi-finance/lora-mou-operation-heto-machinery.git"
     },
     {
       "key": "ssf",
       "name": "SSF",
-      "outputPublic": "public/readset-output-ssf.json"
+      "outputPublic": "public/readset-output-ssf.json",
+      "sourceRepoUrl": "https://github.com/bfi-finance/lora-mou-ssf.git"
     }
   ]
 }

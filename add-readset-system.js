@@ -1,5 +1,5 @@
-const { createInterface } = require('readline/promises');
-const { stdin, stdout } = require('process');
+const { createInterface } = require('node:readline/promises');
+const { stdin, stdout } = require('node:process');
 const {
   CONFIG_PATH,
   SYSTEM_KEY_PATTERN,
@@ -45,7 +45,23 @@ async function promptNewSystem(config) {
     const enteredName = await rl.question(`Display name [${suggestedName}]: `);
     const name = enteredName.trim() || suggestedName;
 
-    return buildSystemEntry(key, name);
+    const enteredSourceRepoUrl = await rl.question(
+      'Source repo URL for GitHub Action (optional, e.g. https://github.com/org/repo.git): '
+    );
+    const sourceRepoUrl = enteredSourceRepoUrl.trim();
+
+    let sourceRepoRef;
+    if (sourceRepoUrl) {
+      const enteredSourceRepoRef = await rl.question(
+        'Source repo ref (optional branch/tag/SHA, default empty): '
+      );
+      sourceRepoRef = enteredSourceRepoRef.trim();
+    }
+
+    return buildSystemEntry(key, name, {
+      sourceRepoUrl,
+      sourceRepoRef
+    });
   } finally {
     rl.close();
   }

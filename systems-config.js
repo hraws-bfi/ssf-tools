@@ -1,5 +1,5 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require('node:fs');
+const path = require('node:path');
 
 const CONFIG_PATH = path.join(__dirname, 'systems.config.json');
 const SYSTEM_KEY_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
@@ -14,12 +14,22 @@ function createDefaultConfig() {
   };
 }
 
-function buildSystemEntry(key, name) {
-  return {
+function buildSystemEntry(key, name, options = {}) {
+  const entry = {
     key,
     name,
     outputPublic: `public/readset-output-${key}.json`
   };
+
+  if (typeof options.sourceRepoUrl === 'string' && options.sourceRepoUrl.trim().length > 0) {
+    entry.sourceRepoUrl = options.sourceRepoUrl.trim();
+  }
+
+  if (typeof options.sourceRepoRef === 'string' && options.sourceRepoRef.trim().length > 0) {
+    entry.sourceRepoRef = options.sourceRepoRef.trim();
+  }
+
+  return entry;
 }
 
 function validateConfig(config) {
@@ -32,7 +42,7 @@ function validateConfig(config) {
   }
 
   if (!Array.isArray(config.systems)) {
-    throw new Error('Invalid config: "systems" must be an array');
+    throw new TypeError('Invalid config: "systems" must be an array');
   }
 
   const seenKeys = new Set();
@@ -41,7 +51,7 @@ function validateConfig(config) {
       throw new Error(`Invalid config: systems[${index}] must be an object`);
     }
 
-    const { key, name, outputPublic } = system;
+    const { key, name, outputPublic, sourceRepoUrl, sourceRepoRef } = system;
 
     if (typeof key !== 'string' || !SYSTEM_KEY_PATTERN.test(key)) {
       throw new Error(
@@ -64,11 +74,31 @@ function validateConfig(config) {
       );
     }
 
-    return {
+    const normalized = {
       key: key.trim(),
       name: name.trim(),
       outputPublic: outputPublic.trim()
     };
+
+    if (sourceRepoUrl !== undefined) {
+      if (typeof sourceRepoUrl !== 'string' || sourceRepoUrl.trim().length === 0) {
+        throw new Error(
+          `Invalid config: systems[${index}].sourceRepoUrl must be a non-empty string when provided`
+        );
+      }
+      normalized.sourceRepoUrl = sourceRepoUrl.trim();
+    }
+
+    if (sourceRepoRef !== undefined) {
+      if (typeof sourceRepoRef !== 'string' || sourceRepoRef.trim().length === 0) {
+        throw new Error(
+          `Invalid config: systems[${index}].sourceRepoRef must be a non-empty string when provided`
+        );
+      }
+      normalized.sourceRepoRef = sourceRepoRef.trim();
+    }
+
+    return normalized;
   });
 
   systems.sort((a, b) => a.key.localeCompare(b.key));
