@@ -1,11 +1,11 @@
 {
   "system": "disb-heto",
-  "extractedAt": "2026-05-22T05:51:00.996Z",
+  "extractedAt": "2026-06-02T09:07:01.298Z",
   "gitInfo": {
-    "commitId": "472c578f14e5e7a9e35f4178f74326f28c812881",
-    "shortCommitId": "472c578",
-    "commitUrl": "https://github.com/bfi-finance/lora-disburse-heto-machinery/commit/472c578f14e5e7a9e35f4178f74326f28c812881",
-    "treeUrl": "https://github.com/bfi-finance/lora-disburse-heto-machinery/tree/472c578f14e5e7a9e35f4178f74326f28c812881"
+    "commitId": "f66bf8afa090fa427c66e0bff1530b300f9df9ed",
+    "shortCommitId": "f66bf8a",
+    "commitUrl": "https://github.com/bfi-finance/lora-disburse-heto-machinery/commit/f66bf8afa090fa427c66e0bff1530b300f9df9ed",
+    "treeUrl": "https://github.com/bfi-finance/lora-disburse-heto-machinery/tree/f66bf8afa090fa427c66e0bff1530b300f9df9ed"
   },
   "searchPaths": [
     "internal/process/tasking/",
@@ -14,9 +14,9 @@
     "internal/process/operation/",
     "internal/process/scoring/"
   ],
-  "totalFiles": 8,
-  "totalReadSets": 4,
-  "totalConstants": 34,
+  "totalFiles": 9,
+  "totalReadSets": 5,
+  "totalConstants": 40,
   "readSets": [
     {
       "type": "operationlegal",
@@ -37,6 +37,24 @@
         "DocFinancingType",
         "DocProcessSurveyTaskSurveyBranchName",
         "DocProcessSurveyTaskSurveyorEmployeeName"
+      ]
+    },
+    {
+      "type": "legaldisburse",
+      "readSet": [
+        "DocCustomerName",
+        "DocMouNumber",
+        "DocOlType",
+        "DocProductId",
+        "DocFinancingType",
+        "DocCustomerProfile",
+        "DocProcessOperationsTaskProcessingBranchId",
+        "DocProcessOperationsTaskProcessingBranchName",
+        "DocProcessSurveyTaskSurveyBranchId",
+        "DocProcessSurveyTaskSurveyBranchName",
+        "DocApplicationDate",
+        "DocOlStatus",
+        "DocOlId"
       ]
     },
     {
@@ -104,8 +122,14 @@
     "DocLoanStructureTenor": "$.loan_structure.tenor",
     "DocMarketingId": "$.marketing_id",
     "DocMouNumber": "$.mou_number",
+    "DocOlId": "$.ol_id",
+    "DocOlStatus": "$.ol_status",
+    "DocOlType": "$.ol_type",
     "DocPot": "$.pot",
     "DocProcessOperationsTaskLegalEmployeeId": "$.process.operations_task.legal_employee_id",
+    "DocProcessOperationsTaskProcessingBranchId": "$.process.operations_task.processing_branch_id",
+    "DocProcessOperationsTaskProcessingBranchName": "$.process.operations_task.processing_branch_name",
+    "DocProcessSurveyTaskSurveyBranchId": "$.process.survey_task.survey_branch_id",
     "DocProcessSurveyTaskSurveyBranchName": "$.process.survey_task.survey_branch_name",
     "DocProcessSurveyTaskSurveyorEmployeeId": "$.process.survey_task.surveyor_employee_id",
     "DocProcessSurveyTaskSurveyorEmployeeName": "$.process.survey_task.surveyor_employee_name",
