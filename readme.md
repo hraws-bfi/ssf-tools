@@ -72,6 +72,9 @@ From Actions → **Sync Readset (Remote Repo)**, provide:
 If source repo is private and you use HTTPS URL, add repository secret:
 - `SOURCE_REPO_TOKEN`: a GitHub token with read access to the source repository
 
+Security note:
+- Workflow auth uses HTTP headers (not token-in-URL), and generated `gitInfo` URLs are sanitized to avoid credential leakage.
+
 How it works:
 - checks out this tools repo
 - clones the provided remote repo URL

@@ -6,6 +6,25 @@ const { execSync } = require('child_process');
 // GitHub repo URL (can be customized)
 const GITHUB_REPO = 'https://github.com/user/repo';
 
+function sanitizeRemoteUrl(remoteUrl) {
+  if (!remoteUrl || typeof remoteUrl !== 'string') {
+    return remoteUrl;
+  }
+
+  const trimmed = remoteUrl.trim();
+
+  // Remove credentials from URLs like https://user:token@github.com/org/repo.git
+  const withoutCredentials = trimmed.replace(/^(https?:\/\/)([^/@]+@)/, '$1');
+
+  if (withoutCredentials.includes('github.com')) {
+    return withoutCredentials
+      .replace(/^git@github\.com:/, 'https://github.com/')
+      .replace(/\.git$/, '');
+  }
+
+  return withoutCredentials;
+}
+
 function getGitInfo(repoPath) {
   try {
     const commitId = execSync('git rev-parse HEAD', {
@@ -22,10 +41,10 @@ function getGitInfo(repoPath) {
         encoding: 'utf8'
       }).trim();
 
-      if (remoteUrl.includes('github.com')) {
-        githubUrl = remoteUrl
-          .replace(/^git@github\.com:/, 'https://github.com/')
-          .replace(/\.git$/, '');
+      const sanitizedUrl = sanitizeRemoteUrl(remoteUrl);
+
+      if (sanitizedUrl.includes('github.com')) {
+        githubUrl = sanitizedUrl;
       }
     } catch (e) {
       // Use default GITHUB_REPO if can't get remote

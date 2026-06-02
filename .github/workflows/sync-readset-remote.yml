@@ -66,13 +66,20 @@ jobs:
 
           # If cloning a private GitHub repo over HTTPS, use optional secret token.
           if [[ "$REPO_URL" == https://github.com/* ]] && [[ -n "${SOURCE_REPO_TOKEN:-}" ]]; then
-            REPO_URL="${REPO_URL/https:\/\//https:\/\/x-access-token:${SOURCE_REPO_TOKEN}@}"
-          fi
-
-          if [ -n "${{ inputs.repo_ref }}" ]; then
-            git clone --depth 1 --branch "${{ inputs.repo_ref }}" "$REPO_URL" "$SOURCE_DIR"
+            AUTH_B64="$(printf 'x-access-token:%s' "$SOURCE_REPO_TOKEN" | base64 | tr -d '\n')"
+            if [ -n "${{ inputs.repo_ref }}" ]; then
+              git -c "http.https://github.com/.extraheader=AUTHORIZATION: basic $AUTH_B64" \
+                clone --depth 1 --branch "${{ inputs.repo_ref }}" "$REPO_URL" "$SOURCE_DIR"
+            else
+              git -c "http.https://github.com/.extraheader=AUTHORIZATION: basic $AUTH_B64" \
+                clone --depth 1 "$REPO_URL" "$SOURCE_DIR"
+            fi
           else
-            git clone --depth 1 "$REPO_URL" "$SOURCE_DIR"
+            if [ -n "${{ inputs.repo_ref }}" ]; then
+              git clone --depth 1 --branch "${{ inputs.repo_ref }}" "$REPO_URL" "$SOURCE_DIR"
+            else
+              git clone --depth 1 "$REPO_URL" "$SOURCE_DIR"
+            fi
           fi
 
           echo "SOURCE_DIR=$SOURCE_DIR" >> "$GITHUB_ENV"
