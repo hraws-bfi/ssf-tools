@@ -59,12 +59,13 @@ jobs:
           REPO_URL="$RAW_REPO_URL"
 
           # Support accidental markdown-style input like [label](https://github.com/org/repo.git)
-          if [[ "$REPO_URL" =~ ^\[[^\]]+\]\((https?://[^)]+)\)$ ]]; then
-            REPO_URL="${BASH_REMATCH[1]}"
+          if [[ "$REPO_URL" == \[*\]\(*\) ]]; then
+            REPO_URL="${REPO_URL#*(}"
+            REPO_URL="${REPO_URL%)}"
           fi
 
           # If cloning a private GitHub repo over HTTPS, use optional secret token.
-          if [[ "$REPO_URL" =~ ^https://github.com/ ]] && [[ -n "${SOURCE_REPO_TOKEN:-}" ]]; then
+          if [[ "$REPO_URL" == https://github.com/* ]] && [[ -n "${SOURCE_REPO_TOKEN:-}" ]]; then
             REPO_URL="${REPO_URL/https:\/\//https:\/\/x-access-token:${SOURCE_REPO_TOKEN}@}"
           fi
 
