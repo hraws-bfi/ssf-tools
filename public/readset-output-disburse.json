@@ -1,11 +1,11 @@
 {
   "system": "disburse",
-  "extractedAt": "2026-04-20T02:59:22.975Z",
+  "extractedAt": "2026-06-02T08:30:24.905Z",
   "gitInfo": {
-    "commitId": "841da428faf90118da4c03e94b1db3acd3ba7abe",
-    "shortCommitId": "841da42",
-    "commitUrl": "https://github.com/bfi-finance/lora-disburse-ssf/commit/841da428faf90118da4c03e94b1db3acd3ba7abe",
-    "treeUrl": "https://github.com/bfi-finance/lora-disburse-ssf/tree/841da428faf90118da4c03e94b1db3acd3ba7abe"
+    "commitId": "1eefc5963c6a38a6378bd340ecba8fc6f3aa0ec4",
+    "shortCommitId": "1eefc59",
+    "commitUrl": "https://github.com/bfi-finance/lora-disburse-ssf/commit/1eefc5963c6a38a6378bd340ecba8fc6f3aa0ec4",
+    "treeUrl": "https://github.com/bfi-finance/lora-disburse-ssf/tree/1eefc5963c6a38a6378bd340ecba8fc6f3aa0ec4"
   },
   "searchPaths": [
     "internal/process/tasking/",
@@ -14,15 +14,14 @@
     "internal/process/operation/",
     "internal/process/scoring/"
   ],
-  "totalFiles": 66,
-  "totalReadSets": 62,
-  "totalConstants": 263,
+  "totalFiles": 70,
+  "totalReadSets": 66,
+  "totalConstants": 268,
   "readSets": [
     {
       "type": "validation",
       "readSet": [
         "DocProductId",
-        "DocStatusApplication",
         "DocProcessOperationsTaskOperationBranchSendTime",
         "DocProductType",
         "DocAssetLicensePlate",
@@ -30,6 +29,7 @@
         "DocAssetAssetCode",
         "DocAssetBpkbNumber",
         "DocAssetBpkbOwnerName",
+        "DocAssetBpkbOwnerNik",
         "DocSubmissionDate",
         "DocShowroomName",
         "DocCustomerNpwpNumber",
@@ -116,6 +116,7 @@
         "DocDocumentsVehicleInteriorBackSideDocumentId",
         "DocCustomerPkd",
         "DocCustomerPersona",
+        "DocAssetDebtorSignType",
         "DocCustomerBankBankCode",
         "DocCustomerBankAccountNumber",
         "DocCustomerBankAccountName"
@@ -128,6 +129,7 @@
         "DocProductType",
         "DocAssetLicensePlate",
         "DocCustomerName",
+        "DocCustomerProfile",
         "DocProcessSurveyTaskSurveyBranchId",
         "DocProcessSurveyTaskSurveyBranchName",
         "DocProcessSurveyTaskSurveyorEmployeeId",
@@ -144,8 +146,51 @@
     {
       "type": "sync_status_rejected",
       "readSet": [
-        "DocProcessUnderwritingTaskApplicantStatus",
-        "DocProcessOperationsTaskOperationBranchSendTime"
+        "DocProcessUnderwritingTaskApplicantStatus"
+      ]
+    },
+    {
+      "type": "sync_status_cco_approved",
+      "readSet": [
+        "DocProcessOperationsTaskValidationStatus"
+      ]
+    },
+    {
+      "type": "sign_poa",
+      "readSet": [
+        "DocDocumentsAgreementDocumentId",
+        "DocProcessUnderwritingTaskUnderwriterEmployeeId",
+        "DocId",
+        "DocProductType"
+      ]
+    },
+    {
+      "type": "set_agreement_number",
+      "readSet": [
+        "DocId",
+        "DocAgreementId",
+        "DocAgreementNumber"
+      ]
+    },
+    {
+      "type": "issue_esign_disburse",
+      "readSet": [
+        "DocCustomerName",
+        "DocId",
+        "DocCustomerProfile",
+        "DocDocumentsAgreementDocumentId",
+        "DocAssetAssetCode",
+        "DocAssetManufacturingYear",
+        "DocAssetLicensePlate",
+        "DocSurveyFinancingAdditionalFeesServiceBureauManagementFee",
+        "DocAgreementNumber",
+        "DocMouMonitoringId"
+      ]
+    },
+    {
+      "type": "golive_agreement",
+      "readSet": [
+        "DocAgreementId"
       ]
     },
     {
@@ -161,6 +206,7 @@
         "DocAssetUnitColor",
         "DocBranchId",
         "DocCustomerBankAccountNumber",
+        "DocCustomerBankAccountName",
         "DocCustomerBankBankCode",
         "DocCustomerIndividualEducationCode",
         "DocCustomerIndividualEmail",
@@ -190,7 +236,6 @@
         "DocCustomerIndividualEmploymentCompanyAddressDetail",
         "DocCustomerIndividualEmploymentCompanyAddressRt",
         "DocCustomerIndividualEmploymentCompanyAddressRw",
-        "DocCustomerIndividualEmploymentCompanyAddressStreet",
         "DocCustomerIndividualEmploymentCompanyAddressSubDistrictCode",
         "DocCustomerIndividualEmploymentCompanyAddressZipCode",
         "DocCustomerIndividualEmploymentSinceYear",
@@ -200,11 +245,13 @@
         "DocShowroomAddressDetail",
         "DocShowroomAddressRt",
         "DocShowroomAddressRw",
-        "DocShowroomAddressStreet",
+        "DocShowroomAddressSubDistrictCode",
+        "DocShowroomAddressZipCode",
         "DocCustomerIndividualEmploymentMonthlyIncome",
         "DocSurveyFinancingAdditionalFeesChangeDueDateFee",
         "DocSurveyFinancingAdditionalFeesServiceBureauManagementFee",
-        "DocProcessSurveyTaskSurveyorEmployeeName"
+        "DocProcessSurveyTaskSurveyorEmployeeName",
+        "DocProcessUnderwritingTaskUnderwriterEmployeeId"
       ]
     },
     {
@@ -247,6 +294,12 @@
       ]
     },
     {
+      "type": "consume_esign_result",
+      "readSet": [
+        "DocProcessSigningFollowupDebtorStatus"
+      ]
+    },
+    {
       "type": "complete_credit_checking",
       "readSet": [
         "DocStatusApplication"
@@ -260,26 +313,12 @@
       ]
     },
     {
-      "type": "cco_approve",
-      "readSet": [
-        "DocStatusApplication",
-        "DocProcessOperationsTaskValidationStatus"
-      ]
-    },
-    {
       "type": "bm_revision",
       "readSet": [
         "DocId",
         "DocProcessUnderwritingTaskApplicantStatus",
         "DocProcessUnderwritingTaskCompletionTime",
         "never by data-forward"
-      ]
-    },
-    {
-      "type": "bm_approve",
-      "readSet": [
-        "DocStatusApplication",
-        "DocProcessUnderwritingTaskApplicantStatus"
       ]
     },
     {
@@ -895,6 +934,7 @@
     }
   ],
   "constants": {
+    "DocAgreementId": "$.agreement.id",
     "DocAgreementNumber": "$.agreement.number",
     "DocAssetAssetCategory": "$.asset.asset_category",
     "DocAssetAssetCode": "$.asset.asset_code",
@@ -914,6 +954,7 @@
     "DocAssetBpkbOwnership": "$.asset.bpkb_ownership",
     "DocAssetChassisNumber": "$.asset.chassis_number",
     "DocAssetConditionNotes": "$.asset.condition_notes",
+    "DocAssetDebtorSignType": "$.asset.debtor_sign_type",
     "DocAssetEngineNumber": "$.asset.engine_number",
     "DocAssetGeneralNotes": "$.asset.general_notes",
     "DocAssetLicensePlate": "$.asset.license_plate",
@@ -1036,7 +1077,6 @@
     "DocCustomerIndividualEmploymentCompanyAddressDetail": "$.customer.individual.employment.company_address.detail",
     "DocCustomerIndividualEmploymentCompanyAddressRt": "$.customer.individual.employment.company_address.rt",
     "DocCustomerIndividualEmploymentCompanyAddressRw": "$.customer.individual.employment.company_address.rw",
-    "DocCustomerIndividualEmploymentCompanyAddressStreet": "$.customer.individual.employment.company_address.street",
     "DocCustomerIndividualEmploymentCompanyAddressSubDistrictCode": "$.customer.individual.employment.company_address.sub_district_code",
     "DocCustomerIndividualEmploymentCompanyAddressZipCode": "$.customer.individual.employment.company_address.zip_code",
     "DocCustomerIndividualEmploymentCompanyName": "$.customer.individual.employment.company_name",
@@ -1073,6 +1113,7 @@
     "DocCustomerProfile": "$.customer.profile",
     "DocCustomerRating": "$.customer.rating",
     "DocCustomerType": "$.customer.type",
+    "DocDocumentsAgreementDocumentId": "$.documents.agreement.document_id",
     "DocDocumentsBankAccountBookDocumentId": "$.documents.bank_account_book.document_id",
     "DocDocumentsBpkbPage1DocumentId": "$.documents.bpkb_page_1.document_id",
     "DocDocumentsBpkbPage1DocumentType": "$.documents.bpkb_page_1.document_type",
@@ -1136,19 +1177,22 @@
     "DocProcessOperationsTaskProcessingBranchId": "$.process.operations_task.processing_branch_id",
     "DocProcessOperationsTaskProcessingBranchName": "$.process.operations_task.processing_branch_name",
     "DocProcessOperationsTaskValidationStatus": "$.process.operations_task.validation_status",
+    "DocProcessSigningFollowupDebtorStatus": "$.process.signing_followup.debtor.status",
     "DocProcessSurveyTaskSurveyBranchId": "$.process.survey_task.survey_branch_id",
     "DocProcessSurveyTaskSurveyBranchName": "$.process.survey_task.survey_branch_name",
     "DocProcessSurveyTaskSurveyorEmployeeId": "$.process.survey_task.surveyor_employee_id",
     "DocProcessSurveyTaskSurveyorEmployeeName": "$.process.survey_task.surveyor_employee_name",
     "DocProcessUnderwritingTaskApplicantStatus": "$.process.underwriting_task.applicant_status",
     "DocProcessUnderwritingTaskCompletionTime": "$.process.underwriting_task.completion_time",
+    "DocProcessUnderwritingTaskUnderwriterEmployeeId": "$.process.underwriting_task.underwriter_employee_id",
     "DocProcessUnderwritingTaskUnderwriterEmployeeName": "$.process.underwriting_task.underwriter_employee_name",
     "DocProductId": "$.product_id",
     "DocProductType": "$.product_type",
     "DocShowroomAddressDetail": "$.showroom.address.detail",
     "DocShowroomAddressRt": "$.showroom.address.rt",
     "DocShowroomAddressRw": "$.showroom.address.rw",
-    "DocShowroomAddressStreet": "$.showroom.address.street",
+    "DocShowroomAddressSubDistrictCode": "$.showroom.address.sub_district_code",
+    "DocShowroomAddressZipCode": "$.showroom.address.zip_code",
     "DocShowroomAge": "$.showroom.age",
     "DocShowroomEmployeeCount": "$.showroom.employee_count",
     "DocShowroomName": "$.showroom.name",
