@@ -1,8 +1,8 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require('node:fs');
+const path = require('node:path');
 const glob = require('glob');
-const { createInterface } = require('readline/promises');
-const { stdin, stdout } = require('process');
+const { createInterface } = require('node:readline/promises');
+const { stdin, stdout } = require('node:process');
 const { syncReadset } = require('./sync-core');
 const { loadConfig } = require('./systems-config');
 
@@ -25,6 +25,37 @@ function hasExpectedProcessFiles(repoPath) {
   return false;
 }
 
+function resolveAndValidateRepoPath(inputPath) {
+  if (!inputPath || inputPath.trim().length === 0) {
+    throw new Error('Path is required.');
+  }
+
+  const repoPath = path.resolve(inputPath.trim());
+
+  if (!fs.existsSync(repoPath)) {
+    throw new Error(`Path does not exist: ${repoPath}`);
+  }
+
+  let stat;
+  try {
+    stat = fs.statSync(repoPath);
+  } catch (error) {
+    throw new Error(`Unable to inspect path: ${error.message}`);
+  }
+
+  if (!stat.isDirectory()) {
+    throw new Error(`Path is not a directory: ${repoPath}`);
+  }
+
+  if (!hasExpectedProcessFiles(repoPath)) {
+    throw new Error(
+      'No expected process files found. Make sure the repo contains internal/process/{tasking,document,operation,scoring} or internal/operation.'
+    );
+  }
+
+  return repoPath;
+}
+
 async function promptRepoPath(systemKey) {
   const rl = createInterface({
     input: stdin,
@@ -34,48 +65,18 @@ async function promptRepoPath(systemKey) {
   try {
     while (true) {
       const answer = await rl.question(`Enter repo path for ${systemKey}: `);
-      const inputPath = answer.trim();
-
-      if (!inputPath) {
-        console.log('Path is required. Please try again.');
-        continue;
-      }
-
-      const repoPath = path.resolve(inputPath);
-
-      if (!fs.existsSync(repoPath)) {
-        console.log(`Path does not exist: ${repoPath}`);
-        continue;
-      }
-
-      let stat;
       try {
-        stat = fs.statSync(repoPath);
+        return resolveAndValidateRepoPath(answer);
       } catch (error) {
-        console.log(`Unable to inspect path: ${error.message}`);
-        continue;
+        console.log(error.message);
       }
-
-      if (!stat.isDirectory()) {
-        console.log(`Path is not a directory: ${repoPath}`);
-        continue;
-      }
-
-      if (!hasExpectedProcessFiles(repoPath)) {
-        console.log(
-          'No expected process files found. Make sure the repo contains internal/process/{tasking,document,operation,scoring} or internal/operation.'
-        );
-        continue;
-      }
-
-      return repoPath;
     }
   } finally {
     rl.close();
   }
 }
 
-async function runSyncForSystem(systemKey) {
+async function runSyncForSystem(systemKey, options = {}) {
   const config = loadConfig();
   const system = config.systems.find((item) => item.key === systemKey);
 
@@ -86,7 +87,9 @@ async function runSyncForSystem(systemKey) {
     );
   }
 
-  const basePath = await promptRepoPath(system.key);
+  const basePath = options.repoPath
+    ? resolveAndValidateRepoPath(options.repoPath)
+    : await promptRepoPath(system.key);
 
   return syncReadset({
     basePath,
@@ -96,5 +99,6 @@ async function runSyncForSystem(systemKey) {
 }
 
 module.exports = {
+  resolveAndValidateRepoPath,
   runSyncForSystem
 };

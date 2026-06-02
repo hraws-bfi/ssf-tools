@@ -46,6 +46,36 @@ The command will always prompt:
 
 Path is validated to ensure it exists, is a directory, and contains expected Go process files.
 
+You can also run non-interactive mode (useful for CI):
+
+```bash
+npm run sync-readset -- <system-key> --repo-path <local-repo-path>
+```
+
+Example:
+
+```bash
+npm run sync-readset -- ssf --repo-path ~/workspace/ssf
+```
+
+## 🤖 GitHub Action: Sync From Remote Repo URL
+
+Manual workflow is available at:
+- `.github/workflows/sync-readset-remote.yml`
+
+From Actions → **Sync Readset (Remote Repo)**, provide:
+- `system_key` (from `systems.config.json`)
+- `repo_url` (Git URL to scan)
+- `repo_ref` (optional branch/tag/SHA)
+- `commit_changes` (whether to push updated `public/readset-output-<system>.json`)
+
+How it works:
+- checks out this tools repo
+- clones the provided remote repo URL
+- runs sync using `--repo-path` with the cloned local directory
+- uploads `public/readset-output-<system>.json` as an artifact
+- optionally commits and pushes the updated output file
+
 ## 📌 Notes
 - Requires Node.js and npm.
 - Sync output is written only to `public/readset-output-<system>.json`.

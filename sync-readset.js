@@ -1,7 +1,7 @@
 const { runSyncForSystem } = require('./sync-runner');
 const { loadConfig, CONFIG_PATH } = require('./systems-config');
-const { createInterface } = require('readline/promises');
-const { stdin, stdout } = require('process');
+const { createInterface } = require('node:readline/promises');
+const { stdin, stdout } = require('node:process');
 
 async function selectSystemFromPrompt() {
   const config = loadConfig();
@@ -41,19 +41,49 @@ async function selectSystemFromPrompt() {
 
 async function main() {
   const args = process.argv.slice(2);
+  const positional = [];
+  let repoPath;
 
-  if (args.length > 1) {
-    console.error('Usage: npm run sync-readset -- [system-key]');
+  for (let i = 0; i < args.length; i++) {
+    const arg = args[i];
+
+    if (arg === '--repo-path') {
+      const value = args[i + 1];
+      if (!value || value.startsWith('--')) {
+        console.error('Missing value for --repo-path');
+        process.exit(1);
+      }
+      repoPath = value;
+      i += 1;
+      continue;
+    }
+
+    if (arg === '--help' || arg === '-h') {
+      console.log('Usage: npm run sync-readset -- [system-key] [--repo-path <local-path>]');
+      console.log('Run without system-key to choose from an interactive system list.');
+      process.exit(0);
+    }
+
+    if (arg.startsWith('--')) {
+      console.error(`Unknown option: ${arg}`);
+      process.exit(1);
+    }
+
+    positional.push(arg);
+  }
+
+  if (positional.length > 1) {
+    console.error('Usage: npm run sync-readset -- [system-key] [--repo-path <local-path>]');
     console.error('Run without args to choose from an interactive system list.');
     process.exit(1);
   }
 
   const systemKey =
-    args.length === 1
-      ? args[0]
+    positional.length === 1
+      ? positional[0]
       : await selectSystemFromPrompt();
 
-  await runSyncForSystem(systemKey);
+  await runSyncForSystem(systemKey, { repoPath });
 }
 
 main().catch((error) => {

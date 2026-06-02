@@ -1,0 +1,92 @@
+name: Sync Readset (Remote Repo)
+
+on:
+  workflow_dispatch:
+    inputs:
+      system_key:
+        description: "System key from systems.config.json"
+        required: true
+        type: choice
+        options:
+          - disb-heto
+          - disburse
+          - heto
+          - ndf
+          - ops-heto
+          - ssf
+      repo_url:
+        description: "Git repo URL to scan (HTTPS or SSH)"
+        required: true
+        type: string
+      repo_ref:
+        description: "Optional branch/tag/SHA (defaults to repo default branch)"
+        required: false
+        type: string
+      commit_changes:
+        description: "Commit updated output file back to this repo"
+        required: true
+        default: false
+        type: boolean
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout tool repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Clone source repository
+        shell: bash
+        run: |
+          set -euo pipefail
+          SOURCE_DIR="$RUNNER_TEMP/source-repo"
+
+          if [ -n "${{ inputs.repo_ref }}" ]; then
+            git clone --depth 1 --branch "${{ inputs.repo_ref }}" "${{ inputs.repo_url }}" "$SOURCE_DIR"
+          else
+            git clone --depth 1 "${{ inputs.repo_url }}" "$SOURCE_DIR"
+          fi
+
+          echo "SOURCE_DIR=$SOURCE_DIR" >> "$GITHUB_ENV"
+
+      - name: Run sync-readset
+        run: npm run sync-readset -- "${{ inputs.system_key }}" --repo-path "$SOURCE_DIR"
+
+      - name: Upload synced output artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: readset-output-${{ inputs.system_key }}
+          path: public/readset-output-${{ inputs.system_key }}.json
+
+      - name: Commit updated output file
+        if: inputs.commit_changes == true
+        shell: bash
+        run: |
+          set -euo pipefail
+          OUTPUT_FILE="public/readset-output-${{ inputs.system_key }}.json"
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add "$OUTPUT_FILE"
+
+          if git diff --cached --quiet; then
+            echo "No changes detected for $OUTPUT_FILE"
+            exit 0
+          fi
+
+          git commit -m "chore(readset): sync ${{ inputs.system_key }} from remote repo"
+          git push
