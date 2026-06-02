@@ -34,6 +34,8 @@ permissions:
 jobs:
   sync:
     runs-on: ubuntu-latest
+    env:
+      SOURCE_REPO_TOKEN: ${{ secrets.SOURCE_REPO_TOKEN }}
 
     steps:
       - name: Checkout tool repo
@@ -53,11 +55,23 @@ jobs:
         run: |
           set -euo pipefail
           SOURCE_DIR="$RUNNER_TEMP/source-repo"
+          RAW_REPO_URL="${{ inputs.repo_url }}"
+          REPO_URL="$RAW_REPO_URL"
+
+          # Support accidental markdown-style input like [label](https://github.com/org/repo.git)
+          if [[ "$REPO_URL" =~ ^\[[^\]]+\]\((https?://[^)]+)\)$ ]]; then
+            REPO_URL="${BASH_REMATCH[1]}"
+          fi
+
+          # If cloning a private GitHub repo over HTTPS, use optional secret token.
+          if [[ "$REPO_URL" =~ ^https://github.com/ ]] && [[ -n "${SOURCE_REPO_TOKEN:-}" ]]; then
+            REPO_URL="${REPO_URL/https:\/\//https:\/\/x-access-token:${SOURCE_REPO_TOKEN}@}"
+          fi
 
           if [ -n "${{ inputs.repo_ref }}" ]; then
-            git clone --depth 1 --branch "${{ inputs.repo_ref }}" "${{ inputs.repo_url }}" "$SOURCE_DIR"
+            git clone --depth 1 --branch "${{ inputs.repo_ref }}" "$REPO_URL" "$SOURCE_DIR"
           else
-            git clone --depth 1 "${{ inputs.repo_url }}" "$SOURCE_DIR"
+            git clone --depth 1 "$REPO_URL" "$SOURCE_DIR"
           fi
 
           echo "SOURCE_DIR=$SOURCE_DIR" >> "$GITHUB_ENV"
