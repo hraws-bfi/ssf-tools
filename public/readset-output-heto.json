@@ -1,11 +1,11 @@
 {
   "system": "heto",
-  "extractedAt": "2026-05-21T07:02:32.911Z",
+  "extractedAt": "2026-06-10T10:14:55.497Z",
   "gitInfo": {
-    "commitId": "aef00fbfb9d68a3c3beb37ceee3cf34e65d8eb2c",
-    "shortCommitId": "aef00fb",
-    "commitUrl": "https://github.com/bfi-finance/lora-mou-heto-machinery/commit/aef00fbfb9d68a3c3beb37ceee3cf34e65d8eb2c",
-    "treeUrl": "https://github.com/bfi-finance/lora-mou-heto-machinery/tree/aef00fbfb9d68a3c3beb37ceee3cf34e65d8eb2c"
+    "commitId": "a454f658281d6d90a03770ab14ff5b22ac197ee6",
+    "shortCommitId": "a454f65",
+    "commitUrl": "https://github.com/bfi-finance/lora-mou-heto-machinery/commit/a454f658281d6d90a03770ab14ff5b22ac197ee6",
+    "treeUrl": "https://github.com/bfi-finance/lora-mou-heto-machinery/tree/a454f658281d6d90a03770ab14ff5b22ac197ee6"
   },
   "searchPaths": [
     "internal/process/tasking/",
@@ -14,34 +14,10 @@
     "internal/process/operation/",
     "internal/process/scoring/"
   ],
-  "totalFiles": 20,
+  "totalFiles": 19,
   "totalReadSets": 14,
-  "totalConstants": 120,
+  "totalConstants": 118,
   "readSets": [
-    {
-      "type": "moucaho",
-      "readSet": [
-        "DocProcessUnderwritingTaskBranchId",
-        "DocProcessUnderwritingTaskCreditAnalystEmployeeId",
-        "DocId",
-        "DocBranchId",
-        "DocBranchBranchName",
-        "DocStatusTimestampsCreated",
-        "DocCustomerName",
-        "DocCustomerProfile",
-        "DocLoanStructureOfferingLetterSupplier",
-        "DocProcessUnderwritingTaskApplicantStatus",
-        "DocProcessUnderwritingTaskSkipCaHo",
-        "DocDocumentsCreditCheckDataSurveyDocumentId",
-        "DocDocumentsCreditCheckImageSurveyDocumentId",
-        "DocLoanStructureEffectiveRate",
-        "DocLoanStructureOfferingLetterNetToFinance",
-        "DocLoanStructureProposalStructureType",
-        "DocLoanStructureTenor",
-        "DocProcessSurveyTaskSurveyorEmployeeName",
-        "DocSourceOfApplicationLabel"
-      ]
-    },
     {
       "type": "mou",
       "readSet": [
@@ -169,6 +145,13 @@
         "DocProcessUnderwritingTaskReturnReason",
         "DocProcessUnderwritingTaskCreditAnalystEmployeeId",
         "DocProcessUnderwritingTaskRevisionNotes"
+      ]
+    },
+    {
+      "type": "mouuwcancelrevision",
+      "readSet": [
+        "DocProcessUnderwritingTaskApplicantStatus",
+        "DocStatusApplication"
       ]
     },
     {
@@ -381,12 +364,10 @@
     "DocProcessMouNumber": "$.process.mou_number",
     "DocProcessSurveyTaskSurveyorEmployeeName": "$.process.survey_task.surveyor_employee_name",
     "DocProcessUnderwritingTaskApplicantStatus": "$.process.underwriting_task.applicant_status",
-    "DocProcessUnderwritingTaskBranchId": "$.process.underwriting_task.branch_id",
     "DocProcessUnderwritingTaskCreditAnalystEmployeeId": "$.process.underwriting_task.credit_analyst_employee_id",
     "DocProcessUnderwritingTaskExpiryDate": "$.process.underwriting_task.expiry_date",
     "DocProcessUnderwritingTaskReturnReason": "$.process.underwriting_task.return_reason",
     "DocProcessUnderwritingTaskRevisionNotes": "$.process.underwriting_task.revision_notes",
-    "DocProcessUnderwritingTaskSkipCaHo": "$.process.underwriting_task.skip_ca_ho",
     "DocProductId": "$.product_id",
     "DocSourceOfApplicationLabel": "$.source_of_application_label",
     "DocStatusApplication": "$.status.application",
