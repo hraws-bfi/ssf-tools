@@ -1,11 +1,11 @@
 {
   "system": "disburse",
-  "extractedAt": "2026-06-02T08:30:24.905Z",
+  "extractedAt": "2026-06-18T02:49:43.004Z",
   "gitInfo": {
-    "commitId": "1eefc5963c6a38a6378bd340ecba8fc6f3aa0ec4",
-    "shortCommitId": "1eefc59",
-    "commitUrl": "https://github.com/bfi-finance/lora-disburse-ssf/commit/1eefc5963c6a38a6378bd340ecba8fc6f3aa0ec4",
-    "treeUrl": "https://github.com/bfi-finance/lora-disburse-ssf/tree/1eefc5963c6a38a6378bd340ecba8fc6f3aa0ec4"
+    "commitId": "f89d671fa4591a64a695a1121474bfd0b12595c1",
+    "shortCommitId": "f89d671",
+    "commitUrl": "https://github.com/bfi-finance/lora-disburse-ssf/commit/f89d671fa4591a64a695a1121474bfd0b12595c1",
+    "treeUrl": "https://github.com/bfi-finance/lora-disburse-ssf/tree/f89d671fa4591a64a695a1121474bfd0b12595c1"
   },
   "searchPaths": [
     "internal/process/tasking/",
@@ -127,6 +127,7 @@
       "readSet": [
         "DocProductId",
         "DocProductType",
+        "DocAssetDebtorSignType",
         "DocAssetLicensePlate",
         "DocCustomerName",
         "DocCustomerProfile",
@@ -290,7 +291,8 @@
         "DocCustomerType",
         "DocAssetBpkbOwnerNik",
         "DocFinancePurposeTypeCode",
-        "DocMouNumber"
+        "DocMouNumber",
+        "DocAssetDebtorSignType"
       ]
     },
     {
