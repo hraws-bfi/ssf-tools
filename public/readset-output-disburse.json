@@ -1,11 +1,11 @@
 {
   "system": "disburse",
-  "extractedAt": "2026-06-18T02:49:43.004Z",
+  "extractedAt": "2026-06-25T03:21:01.669Z",
   "gitInfo": {
-    "commitId": "f89d671fa4591a64a695a1121474bfd0b12595c1",
-    "shortCommitId": "f89d671",
-    "commitUrl": "https://github.com/bfi-finance/lora-disburse-ssf/commit/f89d671fa4591a64a695a1121474bfd0b12595c1",
-    "treeUrl": "https://github.com/bfi-finance/lora-disburse-ssf/tree/f89d671fa4591a64a695a1121474bfd0b12595c1"
+    "commitId": "454587a5b0e8db4d70796f231fd393110723781a",
+    "shortCommitId": "454587a",
+    "commitUrl": "https://github.com/bfi-finance/lora-disburse-ssf/commit/454587a5b0e8db4d70796f231fd393110723781a",
+    "treeUrl": "https://github.com/bfi-finance/lora-disburse-ssf/tree/454587a5b0e8db4d70796f231fd393110723781a"
   },
   "searchPaths": [
     "internal/process/tasking/",
@@ -16,7 +16,7 @@
   ],
   "totalFiles": 70,
   "totalReadSets": 66,
-  "totalConstants": 268,
+  "totalConstants": 269,
   "readSets": [
     {
       "type": "validation",
@@ -62,7 +62,8 @@
         "DocAssetTaxNoticeExpirationDate",
         "DocSurveyFinancingAdditionalFeesChangeDueDateFee",
         "DocSurveyFinancingAdditionalFeesServiceBureauManagementFee",
-        "DocProcessOperationsTaskValidationStatus"
+        "DocProcessOperationsTaskValidationStatus",
+        "DocAssetDebtorSignType"
       ]
     },
     {
@@ -105,7 +106,7 @@
         "DocAssetResaleValueCategory",
         "DocAssetTaxNoticeStatus",
         "DocAssetTaxNoticeExpirationDate",
-        "DocAssetUnitCondition",
+        "DocAssetUnitInspectionGrade",
         "DocDocumentsBankAccountBookDocumentId",
         "DocDocumentsVehicleFrontSideDocumentId",
         "DocDocumentsVehicleLeftSideDocumentId",
@@ -117,7 +118,7 @@
         "DocCustomerPkd",
         "DocCustomerPersona",
         "DocAssetDebtorSignType",
-        "DocCustomerBankBankCode",
+        "DocCustomerBankBankName",
         "DocCustomerBankAccountNumber",
         "DocCustomerBankAccountName"
       ]
@@ -967,13 +968,14 @@
     "DocAssetTaxNoticeExpirationDate": "$.asset.tax_notice.expiration_date",
     "DocAssetTaxNoticeStatus": "$.asset.tax_notice.status",
     "DocAssetUnitColor": "$.asset.unit_color",
-    "DocAssetUnitCondition": "$.asset.unit_condition",
+    "DocAssetUnitInspectionGrade": "$.asset.unit_inspection_grade",
     "DocAssetVehicleType": "$.asset.vehicle_type",
     "DocBranchBranchName": "$.branch.branch_name",
     "DocBranchId": "$.branch.id",
     "DocCustomerBankAccountName": "$.customer.bank.account_name",
     "DocCustomerBankAccountNumber": "$.customer.bank.account_number",
     "DocCustomerBankBankCode": "$.customer.bank.bank_code",
+    "DocCustomerBankBankName": "$.customer.bank.bank_name",
     "DocCustomerCifId": "$.customer.cif_id",
     "DocCustomerCompanyPersonInChargeKtpBirthDate": "$.customer.company.person_in_charge.ktp.birth_date",
     "DocCustomerCompanyPersonInChargeKtpBirthPlace": "$.customer.company.person_in_charge.ktp.birth_place",
