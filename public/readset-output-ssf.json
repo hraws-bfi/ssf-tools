@@ -1,11 +1,11 @@
 {
   "system": "ssf",
-  "extractedAt": "2026-06-02T08:31:05.697Z",
+  "extractedAt": "2026-06-29T06:39:39.449Z",
   "gitInfo": {
-    "commitId": "8f71662b52348a83c0027ddde036af1e758ba7bc",
-    "shortCommitId": "8f71662",
-    "commitUrl": "https://github.com/bfi-finance/lora-mou-ssf/commit/8f71662b52348a83c0027ddde036af1e758ba7bc",
-    "treeUrl": "https://github.com/bfi-finance/lora-mou-ssf/tree/8f71662b52348a83c0027ddde036af1e758ba7bc"
+    "commitId": "4038feceb10c1adef2a8350e858e13c30b06b65e",
+    "shortCommitId": "4038fec",
+    "commitUrl": "https://github.com/bfi-finance/lora-mou-ssf/commit/4038feceb10c1adef2a8350e858e13c30b06b65e",
+    "treeUrl": "https://github.com/bfi-finance/lora-mou-ssf/tree/4038feceb10c1adef2a8350e858e13c30b06b65e"
   },
   "searchPaths": [
     "internal/process/tasking/",
@@ -14,9 +14,9 @@
     "internal/process/operation/",
     "internal/process/scoring/"
   ],
-  "totalFiles": 71,
-  "totalReadSets": 65,
-  "totalConstants": 249,
+  "totalFiles": 72,
+  "totalReadSets": 66,
+  "totalConstants": 250,
   "readSets": [
     {
       "type": "survey",
@@ -62,11 +62,11 @@
         "DocBranchBranchManagerName",
         "DocCustomerName",
         "DocShowroomMainInfoName",
-        "DocCustomerBillingAddressStreet",
-        "DocCustomerBillingAddressRt",
-        "DocCustomerBillingAddressRw",
-        "DocCustomerBillingAddressSubDistrictCode",
-        "DocCustomerBillingAddressZipCode"
+        "DocShowroomMainInfoAddressStreet",
+        "DocShowroomMainInfoAddressRt",
+        "DocShowroomMainInfoAddressRw",
+        "DocShowroomMainInfoAddressSubDistrictCode",
+        "DocShowroomMainInfoAddressZipCode"
       ]
     },
     {
@@ -124,6 +124,13 @@
       "type": "getbranchadminfees",
       "readSet": [
         "DocBranchId"
+      ]
+    },
+    {
+      "type": "generate_document",
+      "readSet": [
+        "DocId",
+        "DocCustomerProfile"
       ]
     },
     {
@@ -1162,6 +1169,7 @@
     "DocShowroomMainInfoAddressRw": "$.showroom.main.info.address.rw",
     "DocShowroomMainInfoAddressStreet": "$.showroom.main.info.address.street",
     "DocShowroomMainInfoAddressSubDistrictCode": "$.showroom.main.info.address.sub_district_code",
+    "DocShowroomMainInfoAddressZipCode": "$.showroom.main.info.address.zip_code",
     "DocShowroomMainInfoEmployeeCount": "$.showroom.main.info.employee_count",
     "DocShowroomMainInfoName": "$.showroom.main.info.name",
     "DocSoaId": "$.soa_id",
