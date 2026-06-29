@@ -276,7 +276,7 @@
 
           const results = await Promise.allSettled(
             sources.map((source) =>
-              fetch(source.url).then((response) => {
+              fetch(`${source.url}?t=${Date.now()}`).then((response) => {
                 if (!response.ok) {
                   throw new Error(`${source.key.toUpperCase()} data not found`);
                 }
@@ -311,7 +311,7 @@
 
       async loadSources() {
         try {
-          const response = await fetch('systems.config.json');
+          const response = await fetch(`systems.config.json?t=${Date.now()}`);
           if (!response.ok) {
             throw new Error(`systems.config.json not found (${response.status})`);
           }
