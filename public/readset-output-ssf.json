@@ -1,11 +1,11 @@
 {
   "system": "ssf",
-  "extractedAt": "2026-06-29T06:49:36.669Z",
+  "extractedAt": "2026-07-01T07:42:57.931Z",
   "gitInfo": {
-    "commitId": "4038feceb10c1adef2a8350e858e13c30b06b65e",
-    "shortCommitId": "4038fec",
-    "commitUrl": "https://github.com/bfi-finance/lora-mou-ssf/commit/4038feceb10c1adef2a8350e858e13c30b06b65e",
-    "treeUrl": "https://github.com/bfi-finance/lora-mou-ssf/tree/4038feceb10c1adef2a8350e858e13c30b06b65e"
+    "commitId": "dc4bbdf0b7d81190ef5c9e486b16bbddef8f2279",
+    "shortCommitId": "dc4bbdf",
+    "commitUrl": "https://github.com/bfi-finance/lora-mou-ssf/commit/dc4bbdf0b7d81190ef5c9e486b16bbddef8f2279",
+    "treeUrl": "https://github.com/bfi-finance/lora-mou-ssf/tree/dc4bbdf0b7d81190ef5c9e486b16bbddef8f2279"
   },
   "searchPaths": [
     "internal/process/tasking/",
@@ -16,7 +16,7 @@
   ],
   "totalFiles": 72,
   "totalReadSets": 66,
-  "totalConstants": 250,
+  "totalConstants": 245,
   "readSets": [
     {
       "type": "survey",
@@ -89,11 +89,11 @@
         "DocBranchBranchManagerName",
         "DocCustomerName",
         "DocShowroomMainInfoName",
-        "DocCustomerBillingAddressStreet",
-        "DocCustomerBillingAddressRt",
-        "DocCustomerBillingAddressRw",
-        "DocCustomerBillingAddressSubDistrictCode",
-        "DocCustomerBillingAddressZipCode",
+        "DocShowroomMainInfoAddressStreet",
+        "DocShowroomMainInfoAddressRt",
+        "DocShowroomMainInfoAddressRw",
+        "DocShowroomMainInfoAddressSubDistrictCode",
+        "DocShowroomMainInfoAddressZipCode",
         "DocCustomerCompanyPersonInChargePosition"
       ]
     },
@@ -253,11 +253,11 @@
         "DocProcessAuthorizer3Address",
         "DocCustomerName",
         "DocShowroomMainInfoName",
-        "DocCustomerBillingAddressStreet",
-        "DocCustomerBillingAddressRt",
-        "DocCustomerBillingAddressRw",
-        "DocCustomerBillingAddressSubDistrictCode",
-        "DocCustomerBillingAddressZipCode"
+        "DocShowroomMainInfoAddressStreet",
+        "DocShowroomMainInfoAddressRt",
+        "DocShowroomMainInfoAddressRw",
+        "DocShowroomMainInfoAddressSubDistrictCode",
+        "DocShowroomMainInfoAddressZipCode"
       ]
     },
     {
@@ -930,11 +930,6 @@
     "DocBranchBranchManagerTitle": "$.branch.branch_manager.title",
     "DocBranchBranchName": "$.branch.branch_name",
     "DocBranchId": "$.branch.id",
-    "DocCustomerBillingAddressRt": "$.customer.billing.address.rt",
-    "DocCustomerBillingAddressRw": "$.customer.billing.address.rw",
-    "DocCustomerBillingAddressStreet": "$.customer.billing.address.street",
-    "DocCustomerBillingAddressSubDistrictCode": "$.customer.billing.address.sub_district_code",
-    "DocCustomerBillingAddressZipCode": "$.customer.billing.address.zip_code",
     "DocCustomerCifId": "$.customer.cif_id",
     "DocCustomerCompanyBusinessScale": "$.customer.company.business_scale",
     "DocCustomerCompanyEstablishedYear": "$.customer.company.established_year",
