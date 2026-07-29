@@ -1,11 +1,11 @@
 {
   "system": "disburse",
-  "extractedAt": "2026-06-25T03:21:01.669Z",
+  "extractedAt": "2026-07-02T10:04:44.352Z",
   "gitInfo": {
-    "commitId": "454587a5b0e8db4d70796f231fd393110723781a",
-    "shortCommitId": "454587a",
-    "commitUrl": "https://github.com/bfi-finance/lora-disburse-ssf/commit/454587a5b0e8db4d70796f231fd393110723781a",
-    "treeUrl": "https://github.com/bfi-finance/lora-disburse-ssf/tree/454587a5b0e8db4d70796f231fd393110723781a"
+    "commitId": "4a480487c286130c92ffe86176e2929f84128b66",
+    "shortCommitId": "4a48048",
+    "commitUrl": "https://github.com/bfi-finance/lora-disburse-ssf/commit/4a480487c286130c92ffe86176e2929f84128b66",
+    "treeUrl": "https://github.com/bfi-finance/lora-disburse-ssf/tree/4a480487c286130c92ffe86176e2929f84128b66"
   },
   "searchPaths": [
     "internal/process/tasking/",
