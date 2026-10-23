@@ -1,11 +1,11 @@
 {
   "system": "disb-heto",
-  "extractedAt": "2026-06-29T06:59:58.237Z",
+  "extractedAt": "2026-10-23T03:11:04.125Z",
   "gitInfo": {
-    "commitId": "a73eb70663381f96d2a0b6186fb4cc1cd8f03951",
-    "shortCommitId": "a73eb70",
-    "commitUrl": "https://github.com/bfi-finance/lora-disburse-heto-machinery/commit/a73eb70663381f96d2a0b6186fb4cc1cd8f03951",
-    "treeUrl": "https://github.com/bfi-finance/lora-disburse-heto-machinery/tree/a73eb70663381f96d2a0b6186fb4cc1cd8f03951"
+    "commitId": "0f8cc8b833bd2876bc88cb721f9c31ecaeb3b15e",
+    "shortCommitId": "0f8cc8b",
+    "commitUrl": "https://github.com/bfi-finance/lora-disburse-heto-machinery/commit/0f8cc8b833bd2876bc88cb721f9c31ecaeb3b15e",
+    "treeUrl": "https://github.com/bfi-finance/lora-disburse-heto-machinery/tree/0f8cc8b833bd2876bc88cb721f9c31ecaeb3b15e"
   },
   "searchPaths": [
     "internal/process/tasking/",
@@ -16,7 +16,7 @@
   ],
   "totalFiles": 10,
   "totalReadSets": 6,
-  "totalConstants": 42,
+  "totalConstants": 37,
   "readSets": [
     {
       "type": "operationlegal",
@@ -30,7 +30,6 @@
         "DocAgreementNumber",
         "DocApplicationDate",
         "DocCustomerName",
-        "DocStatusApplication",
         "DocProductId",
         "DocBranchId",
         "DocCustomerProfile",
@@ -43,22 +42,9 @@
     {
       "type": "legaldisburse",
       "readSet": [
-        "DocCustomerName",
-        "DocMouNumber",
-        "DocOlType",
-        "DocProductId",
-        "DocFinancingType",
-        "DocCustomerProfile",
-        "DocProcessOperationsTaskProcessingBranchId",
-        "DocProcessOperationsTaskProcessingBranchName",
-        "DocProcessSurveyTaskSurveyBranchId",
-        "DocProcessSurveyTaskSurveyBranchName",
-        "DocApplicationDate",
         "DocOlStatus",
         "DocOlId",
-        "DocProcessUnderwritingTaskUnderwritingNotesCa",
-        "DocAgreementId",
-        "DocAgreementNumber"
+        "DocProcessUnderwritingTaskUnderwritingNotesCa"
       ]
     },
     {
@@ -134,20 +120,15 @@
     "DocMouNumber": "$.mou_number",
     "DocOlId": "$.ol_id",
     "DocOlStatus": "$.ol_status",
-    "DocOlType": "$.ol_type",
     "DocPot": "$.pot",
     "DocProcessLegalTaskLegalEmployeeId": "$.process.legal_task.legal_employee_id",
-    "DocProcessOperationsTaskProcessingBranchId": "$.process.operations_task.processing_branch_id",
-    "DocProcessOperationsTaskProcessingBranchName": "$.process.operations_task.processing_branch_name",
     "DocProcessSurveyTaskMarketingEmployeeId": "$.process.survey_task.marketing_employee_id",
-    "DocProcessSurveyTaskSurveyBranchId": "$.process.survey_task.survey_branch_id",
     "DocProcessSurveyTaskSurveyBranchName": "$.process.survey_task.survey_branch_name",
     "DocProcessSurveyTaskSurveyorEmployeeId": "$.process.survey_task.surveyor_employee_id",
     "DocProcessSurveyTaskSurveyorEmployeeName": "$.process.survey_task.surveyor_employee_name",
     "DocProcessUnderwritingTaskUnderwritingNotesCa": "$.process.underwriting_task.underwriting_notes_ca",
     "DocProductId": "$.product_id",
     "DocSoaId": "$.soa_id",
-    "DocStatusApplication": "$.status.application",
     "DocStatusTimestampsBmApproved": "$.status_timestamps.bm_approved"
   }
 }
